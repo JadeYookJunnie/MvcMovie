@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "MvcMovie/1.0.0": {
         "dependencies": {
+          "Blazorise": "1.6.0",
           "Blazorise.AntDesign": "1.6.0",
           "Blazorise.Icons.FontAwesome": "1.6.0"
         },

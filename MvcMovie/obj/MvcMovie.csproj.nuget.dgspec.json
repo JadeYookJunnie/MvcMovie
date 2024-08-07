@@ -43,6 +43,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Blazorise": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
             "Blazorise.AntDesign": {
               "target": "Package",
               "version": "[1.6.0, )"

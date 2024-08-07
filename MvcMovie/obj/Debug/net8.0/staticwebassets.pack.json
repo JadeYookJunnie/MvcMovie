@@ -5,12 +5,24 @@
       "PackagePath": "staticwebassets/MvcMovie.bundle.scp.css"
     },
     {
+      "Id": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/wwwroot/css/sass.css",
+      "PackagePath": "staticwebassets/css/sass.css"
+    },
+    {
+      "Id": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/wwwroot/css/sass.css.map",
+      "PackagePath": "staticwebassets/css/sass.css.map"
+    },
+    {
       "Id": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
     {
       "Id": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/wwwroot/images/Asset 1.svg",
+      "PackagePath": "staticwebassets/images/Asset 1.svg"
     },
     {
       "Id": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/wwwroot/js/site.js",

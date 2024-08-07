@@ -75,3 +75,5 @@ C:/Users/jadel/source/repos/MvcMovie/MvcMovie/obj/Debug/net8.0/MvcMovie.sourceli
 /Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/obj/Debug/net8.0/MvcMovie.csproj.AssemblyReference.cache
 /Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/obj/Debug/net8.0/MvcMovie.csproj.Up2Date
 /Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/bin/Debug/net8.0/Blazorise.AntDesign.dll
+/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/bin/Debug/net8.0/package-lock.json
+/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/bin/Debug/net8.0/package.json
