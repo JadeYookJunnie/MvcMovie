@@ -1,7 +1,19 @@
+using Blazorise;
+using Blazorise.AntDesign;
+using Blazorise.Icons.FontAwesome;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add Blazorise services and configure them.
+builder.Services
+    .AddBlazorise( options =>
+    {
+        options.Immediate = true;
+    } )
+    .AddAntDesignProviders()
+    .AddFontAwesomeIcons();
 
 var app = builder.Build();
 
