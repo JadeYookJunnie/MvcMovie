@@ -11,12 +11,24 @@
         public int Rating { get; set; }
         public int ReviewCount { get; set; }
 
+        public BookModel(string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating, int ReviewCount){
+            this.ISBN = ISBN;
+            this.Title = Title;
+            this.Description = Description;
+            this.Picture = Picture;
+            this.Genre = Genre;
+            this.Author = Author;
+            this.Rating = Rating;
+            this.ReviewCount = ReviewCount;
+        }
+
         public void setFavorite()
         {
 
         }
 
         public void addWishList() { }
+        
         public void addReview() { }
     }
 }

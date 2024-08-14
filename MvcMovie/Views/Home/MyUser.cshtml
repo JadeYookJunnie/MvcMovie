@@ -12,5 +12,83 @@
 
 }
 
-<h1>MyUser</h1>
+<div class="w-100 d-flex flex-column justify-content-center"> 
+    <div class="mh-25 p-2">
+        <p class="fs-3 mb-0">User's Name</p> <!-- mb-0 removes bottom margin -->
+        <p class="fs-6 mb-0">User's Name</p>
+    </div>
+    <ul class="nav nav-tabs pt-4">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#Overview">Overview</a>
+        </li>
 
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#Booklist">Booklist</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#Reviews">Reviews</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#Reviews">Friends</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+    <div class="tab-pane container active" id="Overview">
+        <div class="p-2 d-flex p-0 flex-row ">
+            <div class="card m-2" style="width: 18rem;">
+                <div class="card-header">
+                    Current reads
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>
+            </div>
+
+            <div class="card m-2" style="width: 18rem;">
+                <div class="card-header">
+                    Favorites
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>
+            </div>
+
+            <div class="card m-2" style="width: 18rem;">
+                <div class="card-header">
+                    Recent Reviews
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>
+            </div>
+        </div>
+    
+    </div>
+    <div class="tab-pane container fade" id="Booklist">
+    
+    
+    
+    </div>
+    <div class="tab-pane container fade" id="Reviews">
+    
+    
+    
+    </div>
+
+        <div class="tab-pane container fade" id="Friends">
+    
+    
+    
+        </div>
+    </div>
+</div> 

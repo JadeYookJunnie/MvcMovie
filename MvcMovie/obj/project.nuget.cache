@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "nW1z/Z8KMhE=",
+  "dgSpecHash": "AQI38PlNlsU=",
   "success": true,
   "projectFilePath": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/MvcMovie.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/Users/sheandanes/.nuget/packages/blazorise.antdesign/1.6.0/blazorise.antdesign.1.6.0.nupkg.sha512",
     "/Users/sheandanes/.nuget/packages/blazorise.icons.fontawesome/1.6.0/blazorise.icons.fontawesome.1.6.0.nupkg.sha512",
     "/Users/sheandanes/.nuget/packages/blazorise.licensing/1.2.0/blazorise.licensing.1.2.0.nupkg.sha512",
+    "/Users/sheandanes/.nuget/packages/bootstrap/5.3.3/bootstrap.5.3.3.nupkg.sha512",
     "/Users/sheandanes/.nuget/packages/microsoft.aspnetcore.authorization/8.0.7/microsoft.aspnetcore.authorization.8.0.7.nupkg.sha512",
     "/Users/sheandanes/.nuget/packages/microsoft.aspnetcore.components/8.0.7/microsoft.aspnetcore.components.8.0.7.nupkg.sha512",
     "/Users/sheandanes/.nuget/packages/microsoft.aspnetcore.components.analyzers/8.0.7/microsoft.aspnetcore.components.analyzers.8.0.7.nupkg.sha512",
