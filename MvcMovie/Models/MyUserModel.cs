@@ -4,21 +4,23 @@
     {
         public string Name {get; set;}
         public string Password { get; set; }
-        private List<BookModel> Favourites { get; set; } = new List<BookModel>(); 
-        private List<BookModel> Wishlist { get; set; } = new List<BookModel>(); 
-        private List<UserModel> Friendlist { get; set; } = new List<UserModel>(); 
+        public List<BookModel> Favourites { get; set; } = new List<BookModel>(); 
+        public List<BookModel> Wishlist { get; set; } = new List<BookModel>(); 
+        public List<UserModel> Friendlist { get; set; } = new List<UserModel>(); 
 
         public List<ReviewModel> ReviewList { get; set; } = new List<ReviewModel>();
 
        public MyUserModel(string name, string password)
         {
-            Name = name; // Use parameter name
-            Password = password; // Use parameter password
+            Name = name;
+            Password = password; 
+            CurrentReads = new List<BookModel>(); 
+            Favorites = new List<BookModel>();    
         }
 
         public void addFriend(UserModel user)
         {
-
+            Friendlist.Add(user);
         }
 
         public void removeFriend(UserModel user) { }

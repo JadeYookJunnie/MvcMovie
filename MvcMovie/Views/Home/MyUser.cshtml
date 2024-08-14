@@ -1,4 +1,5 @@
 ﻿@model MvcMovie.Models.MyUserModel
+
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -9,7 +10,15 @@
 
 @{
     ViewBag.Title = "MyUser";
+    var currentReadsModel = new ViewBooksRowModel(
+        "Current Reads",
+        Model.CurrentReads.ToList() // Ensure it's a List<BookModel>
+    );
 
+    var favouritesModel = new ViewBooksRowModel(
+        "Favourites",
+        Model.Favourites.ToList() // Ensure it's a List<BookModel>
+    );
 }
 
 <div class="w-100 d-flex flex-column justify-content-center"> 
@@ -38,32 +47,17 @@
     <!-- Tab panes -->
     <div class="tab-content">
     <div class="tab-pane container active" id="Overview">
-        <div class="p-2 d-flex p-0 flex-row ">
-            <div class="card m-2" style="width: 18rem;">
-                <div class="card-header">
-                    Current reads
+        <div class="p-2 d-flex  flex-row ">
+            <div class="d-flex flex-column">
+                <div class="card">Stats </div>
+                <div class="d-flex flex-row">
+                    @await Html.PartialAsync("_BookList", currentReadsModel)
+                    @await Html.PartialAsync("_BookList", favouritesModel)
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
             </div>
-
             <div class="card m-2" style="width: 18rem;">
                 <div class="card-header">
-                    Favorites
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
-            </div>
-
-            <div class="card m-2" style="width: 18rem;">
-                <div class="card-header">
-                    Recent Reviews
+                    Activities
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">An item</li>

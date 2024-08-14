@@ -205,6 +205,10 @@
       "PackagePath": "staticwebassets/images/DummyPic.jpg"
     },
     {
+      "Id": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/wwwroot/images/bookcover.jpg",
+      "PackagePath": "staticwebassets/images/bookcover.jpg"
+    },
+    {
       "Id": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

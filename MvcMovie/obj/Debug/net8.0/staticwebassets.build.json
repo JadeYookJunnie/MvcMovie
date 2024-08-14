@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "owkKM3kvXAuT3+P12GSRVBHGcpNmYC1jAaYP/y6OOuU=",
+  "Hash": "Bxai3QIMNbHbiXNe5WYka0AZQZ467UskBeVMX8b4w7A=",
   "Source": "MvcMovie",
   "BasePath": "_content/MvcMovie",
   "Mode": "Default",
@@ -2257,6 +2257,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/Asset 1.svg"
+    },
+    {
+      "Identity": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/wwwroot/images/bookcover.jpg",
+      "SourceId": "MvcMovie",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/wwwroot/",
+      "BasePath": "_content/MvcMovie",
+      "RelativePath": "images/bookcover.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/bookcover.jpg"
     },
     {
       "Identity": "/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/wwwroot/images/DummyPic.jpg",

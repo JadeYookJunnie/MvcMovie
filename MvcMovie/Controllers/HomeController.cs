@@ -18,22 +18,16 @@ namespace MvcMovie.Controllers
             return View();
         }
 
-        //   public string ISBN { get; set; }
-        // public string Title { get; set; }
-        // public string Description { get; set; }
-        // public string Picture { get; set; } //for imagesource, can change
-        // public List<string> Genre { get; set; }
-        // public string Author { get; set; }
-        // public int Rating { get; set; }
-        // public int ReviewCount { get; set; }
 
         public IActionResult MyUser()
         {
             var user = new MyUserModel("Thorfinn Karlsefni","password");   
 
             var books = new List<BookModel>{
-                new BookModel("123456", "Title", "Description", "~/images/DummyPic.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, 100),
-                new BookModel("123456", "Title", "Description", "~/images/DummyPic.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, 100),
+                new BookModel("123456", "To Kill a Mockingbird", "Description", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, 100),
+                new BookModel("123456", "The Great Gatsby", "Description", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, 100),
+                new BookModel("123456", "The Lion, the Witch and the Wardrobe ", "Description", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, 100),
+                new BookModel("123456", "Title", "Description", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, 100),
             };
             foreach (var book in books)
             {
