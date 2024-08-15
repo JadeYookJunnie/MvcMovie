@@ -1,0 +1,34 @@
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables'; 
+@import "../../node_modules/bootstrap/scss/mixins";   
+@import "../../node_modules/bootstrap/scss/utilities";
+$utilities: map-merge(
+  $utilities,
+  (
+    "margin": map-merge(
+      map-get($utilities, "margin"),
+      (
+        class: "m",
+        values: map-merge(
+          map-get(map-get($utilities, "margin"), "values"),
+          (6:4rem, 7:6rem, 8:10rem, 9:10.5rem, 10: 12rem),
+        ),
+      ),
+    ),
+    "margin-top": map-merge(
+      map-get($utilities, "margin-top"),
+      (
+        class: "mt",
+        values: map-merge(
+          map-get(map-get($utilities, "margin-top"), "values"),
+          (6:4rem, 7:6rem, 8:10rem, 9:10.5rem, 10: 12rem),
+        ),
+      ),
+    ),
+  )
+);
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
+@debug $utilities;

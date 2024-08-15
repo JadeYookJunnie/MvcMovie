@@ -18,9 +18,25 @@ namespace MvcMovie.Controllers
             return View();
         }
 
+
         public IActionResult MyUser()
         {
-            return View();
+            var user = new MyUserModel("Thorfinn Karlsefni","password");   
+
+            var books = new List<BookModel>{
+                new BookModel("123456", "To Kill a Mockingbird", "Description", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, 100),
+                new BookModel("123456", "The Great Gatsby", "Description", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, 100),
+                new BookModel("123456", "The Lion, the Witch and the Wardrobe ", "Description", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, 100),
+                new BookModel("123456", "Title", "Description", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, 100),
+            };
+            foreach (var book in books)
+            {
+                user.addBookToCurrentReads(book);
+                user.addBookToFavorites(book);
+                
+            };
+            
+            return View(user);
         }
 
         public IActionResult Book()
@@ -33,6 +49,7 @@ namespace MvcMovie.Controllers
             return View();
         }
 
+    
         
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
