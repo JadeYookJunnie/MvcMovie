@@ -1,0 +1,31 @@
+@model MvcMovie.Models.BookModel
+
+<div class="d-flex m-2 py-2 border-bottom" data-bs-toggle="modal" data-bs-target="#bookModal-@Model.ISBN" style="cursor: pointer;">
+    <img src="@Url.Content(Model.Picture)" alt="Book Cover" class="img-thumbnail" style="width:90px; height: auto;" />
+    <div class="ms-3">
+        <p class="fs-6 fw-normal mb-1">@Model.Title</p>
+        <p class="fw-light mb-0">@Model.Author</p>
+    </div>
+</div>
+
+
+<div class="modal fade" id="bookModal-@Model.ISBN" tabindex="-1" aria-labelledby="bookModalLabel-@Model.ISBN" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookModalLabel-@Model.ISBN">@Model.Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="@Url.Content(Model.Picture)" alt="Book Cover" class="img-fluid" />
+                <p><strong>Author:</strong> @Model.Author</p>
+                <p><strong>Description:</strong> @Model.Description</p>
+                <!-- Add more details as needed -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- Add more buttons if needed -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 ﻿namespace MvcMovie.Models
 {
     public class BookModel
-    {
+    {   
         public string ISBN { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -11,7 +11,7 @@
         public int Rating { get; set; }
         public int ReviewCount { get; set; }
 
-        public BookModel(string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating, int ReviewCount){
+        public BookModel(string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating){
             this.ISBN = ISBN;
             this.Title = Title;
             this.Description = Description;
