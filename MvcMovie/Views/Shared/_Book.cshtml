@@ -10,21 +10,19 @@
 
 
 <div class="modal fade" id="bookModal-@Model.ISBN" tabindex="-1" aria-labelledby="bookModalLabel-@Model.ISBN" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="bookModalLabel-@Model.ISBN">@Model.Title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="@Url.Content(Model.Picture)" alt="Book Cover" class="img-fluid" />
+                <img src="@Url.Content(Model.Picture)" alt="Book Cover" class="img-thumbnail" style="width:200px; height: auto;" />
                 <p><strong>Author:</strong> @Model.Author</p>
                 <p><strong>Description:</strong> @Model.Description</p>
-                <!-- Add more details as needed -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <!-- Add more buttons if needed -->
             </div>
         </div>
     </div>

@@ -10,6 +10,7 @@
         public string Author { get; set; }
         public int Rating { get; set; }
         public int ReviewCount { get; set; }
+        public List<ReviewModel> BookReviews {get;set;}
 
         public BookModel(string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating){
             this.ISBN = ISBN;
@@ -19,16 +20,28 @@
             this.Genre = Genre;
             this.Author = Author;
             this.Rating = Rating;
-            this.ReviewCount = ReviewCount;
+            this.ReviewCount = 0;
+            this.BookReviews = new List<ReviewModel>();    
         }
 
-        public void setFavorite()
+        public void setFavorite(BookModel book)
+        {   
+       
+        }
+
+        public void addWishList(BookModel book)
         {
-
+            
+        }
+        
+        public void addReview(ReviewModel review)
+        {  
+            BookReviews.Add(review);
         }
 
-        public void addWishList() { }
-        
-        public void addReview() { }
+        public void RemoveReview(ReviewModel review)
+        {  
+            BookReviews.Remove(review);
+        }
     }
 }
