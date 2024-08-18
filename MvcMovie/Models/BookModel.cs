@@ -5,14 +5,16 @@
         public string ISBN { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Picture { get; set; } //for imagesource, can change
+        public string Picture { get; set; }
         public List<string> Genre { get; set; }
         public string Author { get; set; }
         public int Rating { get; set; }
+        public DateTime PublishDate { get; set; }
         public int ReviewCount { get; set; }
-        public List<ReviewModel> BookReviews {get;set;}
+        public List<ReviewModel> BookReviews { get; set; }
 
-        public BookModel(string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating){
+        public BookModel(string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating)
+        {
             this.ISBN = ISBN;
             this.Title = Title;
             this.Description = Description;
@@ -21,7 +23,7 @@
             this.Author = Author;
             this.Rating = Rating;
             this.ReviewCount = 0;
-            this.BookReviews = new List<ReviewModel>();    
+            this.BookReviews = new List<ReviewModel>();
         }
 
         public void setFavorite(BookModel book)

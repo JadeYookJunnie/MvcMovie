@@ -1,21 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
 using MvcMovie.Models;
 using System.Diagnostics;
+using MvcMovie.Services;
 
 namespace MvcMovie.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly GoogleBooksService _googleBooksService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, GoogleBooksService googleBooksService)
         {
             _logger = logger;
+            _googleBooksService = googleBooksService;
         }
 
         public IActionResult Index()
         {
             return View();
+        }
+         public async Task<IActionResult> BrowseArea()
+        {
+            // Fetch books from Google Books API
+            var books = await _googleBooksService.SearchAllBooksAsync(null);
+
+            return View(books);
         }
 
 

@@ -18,12 +18,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Home/Book.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Cb29rLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Home/BookList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Cb29rTGlzdC5jc2h0bWw=
+[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Home/BrowseArea.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Ccm93c2VBcmVhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Home/Index.cshtml]

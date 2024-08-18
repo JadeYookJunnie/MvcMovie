@@ -77,3 +77,5 @@ C:/Users/jadel/source/repos/MvcMovie/MvcMovie/obj/Debug/net8.0/MvcMovie.sourceli
 /Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/obj/Debug/net8.0/MvcMovie.pdb
 /Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/obj/Debug/net8.0/MvcMovie.genruntimeconfig.cache
 /Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/obj/Debug/net8.0/ref/MvcMovie.dll
+/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/bin/Debug/net8.0/DotNetEnv.dll
+/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/bin/Debug/net8.0/Sprache.dll
