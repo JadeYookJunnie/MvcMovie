@@ -6,6 +6,12 @@ namespace MvcMovie.Controllers
 {
     public class HomeController : Controller
     {
+
+        /* SIGN IN INFORMATION FOR EXISTING ACCOUNT COS I FUCKED UP SIGN UP PROCESS:
+         * username: admin
+         * password: Adm!n1strator
+         */
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

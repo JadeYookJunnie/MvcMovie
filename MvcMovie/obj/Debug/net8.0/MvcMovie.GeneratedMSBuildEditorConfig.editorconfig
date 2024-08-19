@@ -9,59 +9,59 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MvcMovie
 build_property.RootNamespace = MvcMovie
-build_property.ProjectDir = /Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/
+build_property.ProjectDir = C:\Users\godof\Documents\UNI\4th\527\MvcMovie\MvcMovie\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie
+build_property.MSBuildProjectDirectory = C:\Users\godof\Documents\UNI\4th\527\MvcMovie\MvcMovie
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Home/Book.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Cb29rLmNzaHRtbA==
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/Home/Book.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCb29rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Home/BookList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Cb29rTGlzdC5jc2h0bWw=
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/Home/BookList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCb29rTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Home/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Mb2dpbi5jc2h0bWw=
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Home/MyUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9NeVVzZXIuY3NodG1s
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/Home/MyUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNeVVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Shared/_BookList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Cb29rTGlzdC5jc2h0bWw=
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/Shared/_BookList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Cb29rTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sheandanes/Documents/2024University/COMPX527/MvcMovie/MvcMovie/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-bq18ea6s7x
+[C:/Users/godof/Documents/UNI/4th/527/MvcMovie/MvcMovie/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-0uvum7rpp4
