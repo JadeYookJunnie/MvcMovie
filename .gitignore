@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs/MvcMovie
+/MvcMovie/node_modules
+# /MvcMovie/bin/Debug # Not sure if this should be here, so commenting it out for now

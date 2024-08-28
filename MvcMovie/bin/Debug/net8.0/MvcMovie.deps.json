@@ -10,7 +10,8 @@
         "dependencies": {
           "Blazorise": "1.6.0",
           "Blazorise.AntDesign": "1.6.0",
-          "Blazorise.Icons.FontAwesome": "1.6.0"
+          "Blazorise.Icons.FontAwesome": "1.6.0",
+          "bootstrap": "5.3.3"
         },
         "runtime": {
           "MvcMovie.dll": {}
@@ -66,6 +67,7 @@
           }
         }
       },
+      "bootstrap/5.3.3": {},
       "Microsoft.AspNetCore.Authorization/8.0.7": {
         "dependencies": {
           "Microsoft.AspNetCore.Metadata": "8.0.7",
@@ -208,6 +210,13 @@
       "sha512": "sha512-h7jkAF+yyIKnUqFYivaxIySDma1zLV+0xcg52r2gIe772BLQWnBaANjpMBKXxRlYiEyOGPQWjMHJWs3dL/TgmA==",
       "path": "blazorise.licensing/1.2.0",
       "hashPath": "blazorise.licensing.1.2.0.nupkg.sha512"
+    },
+    "bootstrap/5.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iQohLXwneNPDyW4x24mKQ90qGwT5WTtNl3KybL0koTluJPjKYxFCU/NTLHsJiWR2n7VmnwcpAgr8TR42KNmPOg==",
+      "path": "bootstrap/5.3.3",
+      "hashPath": "bootstrap.5.3.3.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization/8.0.7": {
       "type": "package",
