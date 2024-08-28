@@ -4,4 +4,6 @@
 
 /.vs/MvcMovie
 /MvcMovie/node_modules
+**/obj/
+*.exe
 # /MvcMovie/bin/Debug # Not sure if this should be here, so commenting it out for now
