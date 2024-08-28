@@ -1,29 +1,35 @@
-resource "aws_alb" "application_load_balancer" {
-  name               = "load-balancer-dev" #load balancer name
-  load_balancer_type = "application"
-  subnets = [ # Referencing the default subnets
-    "${aws_default_subnet.default_subnet_a.id}",
-    "${aws_default_subnet.default_subnet_b.id}"
-  ]
-  # security group
-  security_groups = ["${aws_security_group.load_balancer_security_group.id}"]
+resource "aws_lb" "ecs_alb" {
+ name               = "ecs-alb"
+ internal           = false
+ load_balancer_type = "application"
+ security_groups    = [aws_security_group.security_group.id]
+ subnets            = [aws_subnet.subnet.id, aws_subnet.subnet2.id]
+
+ tags = {
+   Name = "ecs-alb"
+ }
 }
 
-# main.tf
-resource "aws_lb_target_group" "target_group" {
-  name        = "target-group"
-  port        = 80
-  protocol    = "HTTP"
-  target_type = "ip"
-  vpc_id      = "${aws_default_vpc.default_vpc.id}" # default VPC
+resource "aws_lb_listener" "ecs_alb_listener" {
+ load_balancer_arn = aws_lb.ecs_alb.arn
+ port              = 80
+ protocol          = "HTTP"
+
+ default_action {
+   type             = "forward"
+   target_group_arn = aws_lb_target_group.ecs_tg.arn
+ }
 }
 
-resource "aws_lb_listener" "listener" {
-  load_balancer_arn = "${aws_alb.application_load_balancer.arn}" #  load balancer
-  port              = "80"
-  protocol          = "HTTP"
-  default_action {
-    type             = "forward"
-    target_group_arn = "${aws_lb_target_group.target_group.arn}" # target group
-  }
+resource "aws_lb_target_group" "ecs_tg" {
+ name        = "ecs-target-group"
+ port        = 80
+ protocol    = "HTTP"
+ target_type = "ip"
+ vpc_id      = aws_vpc.main.id
+
+ health_check {
+   path = "/"
+   port = 8080
+ }
 }
