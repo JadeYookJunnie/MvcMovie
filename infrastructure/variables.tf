@@ -30,7 +30,7 @@ variable "vpc_cidr" {
 
 variable "ecs_role_arn" {
   description = "ARN for ECS Cluster. (Minimun ecsTaskExecutionRole)"
-  type = string
+  type        = string
 }
 
 variable "iam_instance_arn" {
