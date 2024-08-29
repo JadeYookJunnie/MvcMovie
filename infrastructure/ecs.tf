@@ -1,3 +1,9 @@
+# Get latest image in provided ECR
+data "aws_ecr_image" "service_image" {
+  repository_name = var.docker_repository
+  image_tag       = "latest"
+}
+
 resource "aws_ecs_cluster" "betterreads_cluster" {
   name = "betterreads-cluster"
 }
@@ -14,7 +20,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
  container_definitions = jsonencode([
    {
      name      = "dockergs"
-     image     = var.docker_repository_url,
+     image     = data.aws_ecr_image.service_image.image_uri
      cpu       = 256
      memory    = 512
      essential = true
@@ -54,4 +60,9 @@ resource "aws_ecs_cluster_capacity_providers" "example" {
    weight            = 100
    capacity_provider = aws_ecs_capacity_provider.ecs_capacity_provider.name
  }
+}
+
+# Output service image name for debugging
+output "docker-image" {
+  value = data.aws_ecr_image.service_image.image_uri
 }

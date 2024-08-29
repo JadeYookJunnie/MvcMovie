@@ -34,12 +34,12 @@ variable "ecs_role_arn" {
 }
 
 variable "iam_instance_arn" {
-  description = "ARN for EC2 Template. (Minimun ecsInstanceProfile)"
+  description = "ARN for EC2 Template. (AmazonEC2ContainerServiceforEC2Role)"
   type = string
 }
 
-variable "docker_repository_url" {
-  description = "Url for ECR"
+variable "docker_repository" {
+  description = "Name for ECR"
   type = string
-  default = "851725582693.dkr.ecr.ap-southeast-2.amazonaws.com/terraform-docker-repo:latest"
+  default = "terraform-docker-repo"
 }
