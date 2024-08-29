@@ -35,11 +35,11 @@ variable "ecs_role_arn" {
 
 variable "iam_instance_arn" {
   description = "ARN for EC2 Template. (AmazonEC2ContainerServiceforEC2Role)"
-  type = string
+  type        = string
 }
 
 variable "docker_repository" {
   description = "Name for ECR"
-  type = string
-  default = "terraform-docker-repo"
+  type        = string
+  default     = "terraform-docker-repo"
 }

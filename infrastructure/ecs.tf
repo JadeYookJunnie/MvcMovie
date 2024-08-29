@@ -1,7 +1,7 @@
 # Get latest image in provided ECR
 data "aws_ecr_image" "service_image" {
   repository_name = var.docker_repository
-  most_recent = true
+  most_recent     = true
 }
 
 resource "aws_ecs_cluster" "betterreads_cluster" {
@@ -9,30 +9,30 @@ resource "aws_ecs_cluster" "betterreads_cluster" {
 }
 
 resource "aws_ecs_task_definition" "ecs_task_definition" {
- family             = "my-ecs-task"
- network_mode       = "awsvpc"
- execution_role_arn = var.ecs_role_arn
- cpu                = 256
- runtime_platform {
-   operating_system_family = "LINUX"
-   cpu_architecture        = "X86_64"
- }
- container_definitions = jsonencode([
-   {
-     name      = "dockergs"
-     image     = data.aws_ecr_image.service_image.image_uri,
-     cpu       = 256
-     memory    = 512
-     essential = true
-     portMappings = [
-       {
-         containerPort = 8080
-         hostPort      = 8080
-         protocol      = "tcp"
-       }
-     ]
-   }
- ])
+  family             = "my-ecs-task"
+  network_mode       = "awsvpc"
+  execution_role_arn = var.ecs_role_arn
+  cpu                = 256
+  runtime_platform {
+    operating_system_family = "LINUX"
+    cpu_architecture        = "X86_64"
+  }
+  container_definitions = jsonencode([
+    {
+      name      = "dockergs"
+      image     = data.aws_ecr_image.service_image.image_uri,
+      cpu       = 256
+      memory    = 512
+      essential = true
+      portMappings = [
+        {
+          containerPort = 8080
+          hostPort      = 8080
+          protocol      = "tcp"
+        }
+      ]
+    }
+  ])
 }
 
 resource "aws_ecs_capacity_provider" "ecs_capacity_provider" {

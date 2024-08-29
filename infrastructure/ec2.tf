@@ -47,6 +47,12 @@ resource "aws_autoscaling_group" "ecs_asg" {
   }
 
   tag {
+    key                 = "AutoScalingGroupName"
+    value               = "BetterReads-ASG"
+    propagate_at_launch = true
+  }
+
+  tag {
     key                 = "AmazonECSManaged"
     value               = true
     propagate_at_launch = true
