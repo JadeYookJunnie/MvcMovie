@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MvcMovie.Models.BookModel>
+@{
+    ViewData["Title"] = "BrowseArea";
+    ViewData["Title"] = "BrowseArea";
+    ViewBag.ShowHeader = true;
+}
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var book in Model)
+        {
+            @await Html.PartialAsync("_Book", book)
+        }
+    </ul>
+}
+else
+{
+    <p>No books available.</p>
+}

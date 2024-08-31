@@ -23,7 +23,10 @@
             Friendlist.Add(user);
         }
 
-        public void removeFriend(UserModel user) { }
+        public void removeFriend(UserModel user)
+        {
+            Friendlist.Remove(user);
+        }
 
         public void addBookToWishlist(BookModel book) 
         {

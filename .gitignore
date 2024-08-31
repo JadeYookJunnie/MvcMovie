@@ -264,7 +264,6 @@ _Pvt_Extensions
 .idea/
 *.sln.iml
 
-=======
 **/obj/
 
 # Terraform files
