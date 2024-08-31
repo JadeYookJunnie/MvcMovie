@@ -4,9 +4,6 @@
 
 /.vs/MvcMovie
 /MvcMovie/node_modules
-<<<<<<< Updated upstream
-# /MvcMovie/bin/Debug # Not sure if this should be here, so commenting it out for now
-=======
 **/obj/
 
 ## Ignore Visual Studio temporary files, build results, and
@@ -265,7 +262,8 @@ _Pvt_Extensions
 .idea/
 *.sln.iml
 
-# /MvcMovie/bin/Debug # Not sure if this should be here, so commenting it out for now
+=======
+**/obj/
 
 # Terraform files
 *.exe
@@ -285,4 +283,3 @@ override.tf.json
 .terraformrc
 .terraform.*
 terraform.rc
->>>>>>> Stashed changes

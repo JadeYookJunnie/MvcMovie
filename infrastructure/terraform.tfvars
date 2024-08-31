@@ -1,0 +1,8 @@
+region            = "ap-southeast-2"
+subnet_region_a   = "ap-southeast-2a"
+subnet_region_b   = "ap-southeast-2b"
+profile           = "Terraform"
+vpc_cidr          = "10.0.0.0/16"
+ecs_role_arn      = ""
+iam_instance_arn  = ""
+docker_repository = ""
