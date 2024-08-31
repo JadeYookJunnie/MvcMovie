@@ -27,6 +27,8 @@ js/app.min.js
 *.userprefs
 
 # Build results
+MvcMovie/bin/
+MvcMovie/obj/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
