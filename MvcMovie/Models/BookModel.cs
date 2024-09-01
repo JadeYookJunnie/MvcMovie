@@ -12,9 +12,11 @@
         public DateTime PublishDate { get; set; }
         public int ReviewCount { get; set; }
         public List<ReviewModel> BookReviews { get; set; }
+        public string id { get; set; }
 
-        public BookModel(string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating)
-        {
+        public BookModel(string id, string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating)
+        {   
+            this.id = id;
             this.ISBN = ISBN;
             this.Title = Title;
             this.Description = Description;

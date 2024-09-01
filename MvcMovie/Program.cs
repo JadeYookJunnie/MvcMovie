@@ -16,7 +16,7 @@ builder.Services.AddHttpClient<GoogleBooksService>(client =>
     client.DefaultRequestHeaders.Add("Authorization", $"Bearer {googleBooksApiKey}");
 });
 
-
+builder.Services.AddMemoryCache(); // Register IMemoryCache
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

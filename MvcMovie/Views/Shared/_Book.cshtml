@@ -1,6 +1,9 @@
 @model MvcMovie.Models.BookModel
 
-<div class="d-flex m-2 py-2 border-bottom" data-bs-toggle="modal" data-bs-target="#bookModal-@Model.ISBN" style="cursor: pointer;">
+@{
+    var safeId = Model.ISBN.Replace(":", "_").Replace(" ", "_"); // Replace unsafe characters
+}
+<div class="d-flex m-2 py-2 border-bottom" data-bs-toggle="modal" data-bs-target="#bookModal-@safeId" style="cursor: pointer;">
     <img src="@Url.Content(Model.Picture)" alt="Book Cover" class="img-thumbnail" style="width:90px; height: auto;" />
     <div class="ms-3">
         <p class="fs-6 fw-normal mb-1">@Model.Title</p>
@@ -8,12 +11,11 @@
     </div>
 </div>
 
-
-<div class="modal fade" id="bookModal-@Model.ISBN" tabindex="-1" aria-labelledby="bookModalLabel-@Model.ISBN" aria-hidden="true">
+<div class="modal fade" id="bookModal-@safeId" tabindex="-1" aria-labelledby="bookModalLabel-@safeId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="bookModalLabel-@Model.ISBN">@Model.Title</h5>
+                <h5 class="modal-title" id="bookModalLabel-@safeId">@Model.Title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -25,9 +27,33 @@
                     </div> 
                 </div> 
             </div>
+            
+             <div class="d-flex  justify-content-between m-4"> 
+                <p><strong>Reviews:</strong></p>
+                <button class="btn btn-primary" type="button" onclick="toggleReviewInput('@safeId')">Add Review</button>
+            </div>
+
+            <!--Review Area-->
+            <div id="reviewInput-@safeId" class="m-4" style="display: none;">              
+                <textarea class="form-control" rows="3" placeholder="Write your review..."></textarea>
+                <button class="btn btn-danger mt-2" type="button" onclick="toggleReviewInput('@safeId')">Cancel</button>
+                <button class="btn btn-success mt-2" type="button">Submit</button>
+            </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function toggleReviewInput(safeId) {
+        var reviewInput = document.getElementById('reviewInput-' + safeId);
+        if (reviewInput.style.display === 'none') {
+            reviewInput.style.display = 'block';
+        } else {
+            reviewInput.style.display = 'none';
+        }
+    }
+</script>
