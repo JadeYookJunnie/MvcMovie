@@ -54,7 +54,7 @@ namespace MvcMovie.Services
 
         var booksResponse = await response.Content.ReadFromJsonAsync<GoogleBooksResponse>();
         var books = booksResponse?.Items?.Select(item => new BookModel(
-            item.VolumeInfo?.id ?? "NO ID",
+            item.VolumeInfo?.id ?? "NO ID", //Is ID the same as ISBN?? 
             item.VolumeInfo?.IndustryIdentifiers?.FirstOrDefault()?.Identifier ?? "No ISBN",
             item.VolumeInfo?.Title ?? "No Title",
             item.VolumeInfo?.Description ?? "No Description",
