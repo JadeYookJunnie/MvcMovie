@@ -1,8 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "91D63QkOe6c=",
+  "dgSpecHash": "/rD1WEQLAhs=",
   "success": true,
   "projectFilePath": "C:\\Users\\jadel\\source\\repos\\MvcMovie\\MvcMovie\\MvcMovie.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\jadel\\.nuget\\packages\\awssdk.core\\3.7.400.13\\awssdk.core.3.7.400.13.nupkg.sha512",
+    "C:\\Users\\jadel\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.400.13\\awssdk.dynamodbv2.3.7.400.13.nupkg.sha512",
+    "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
+    "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
