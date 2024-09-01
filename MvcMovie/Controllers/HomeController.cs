@@ -66,7 +66,7 @@ namespace MvcMovie.Controllers
         public IActionResult Review()
         {
             var reviews = GetDummyReviews();
-            return View();
+            return View(reviews)
         }
 
 
