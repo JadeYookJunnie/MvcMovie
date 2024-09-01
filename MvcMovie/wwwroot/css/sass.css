@@ -16805,5 +16805,36 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.bg-primary {
+  background-color: #33272a !important;
+}
+
+.bg-secondary {
+  background-color: #6610f2 !important;
+}
+
+.bg-success {
+  background-color: #198754 !important;
+}
+
+.bg-info {
+  background-color: #0dcaf0 !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+.bg-dark {
+  background-color: #212529 !important;
+}
 
 /*# sourceMappingURL=sass.css.map */
