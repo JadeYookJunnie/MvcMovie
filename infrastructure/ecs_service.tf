@@ -14,10 +14,6 @@ resource "aws_ecs_service" "ecs_service" {
     type = "distinctInstance"
   }
 
-  triggers = {
-    redeployment = timestamp()
-  }
-
   capacity_provider_strategy {
     capacity_provider = aws_ecs_capacity_provider.ecs_capacity_provider.name
     weight            = 100
