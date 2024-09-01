@@ -24,12 +24,6 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
       cpu       = 256
       memory    = 512
       essential = true
-      secrets = [
-        {
-          name      = "BOOK_API"
-          valueFrom = var.book_api_arn
-        }, 
-      ]
       portMappings = [
         {
           containerPort = 8080
