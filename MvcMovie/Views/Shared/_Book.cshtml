@@ -18,55 +18,109 @@
                 <h5 class="modal-title" id="bookModalLabel-@safeId">@Model.Title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body gap-2">
-                
-                <div class="d-flex flex-row gap-1 flex-wrap"> 
-                    <div class="d-flex flex-column">
-                         <img src="@Url.Content(Model.Picture)" alt="Book Cover" class="img-thumbnail" style="width:200px; height: auto;" />
-                    </div>
-
-                    <div class="d-flex flex-column align-items-start flex-wrap gap-2">
-                        <div> 
-                             <span class="badge text-bg-secondary">@Model.PublishDate.ToString("MMMM dd, yyyy") </span>
+            <div class="modal-body p-0">
+                <!------------------------------BOOK DETAILS--------------------------------------------->
+                <div class="gap-2 p-4"> <!--Book Details-->
+                    <div class="d-flex flex-row gap-1 flex-wrap"> 
+                        <div class="d-flex flex-column">
+                            <img src="@Url.Content(Model.Picture)" alt="Book Cover" class="img-thumbnail" style="width:200px; height: auto;" />
                         </div>
-                        <p><strong>Author:</strong> @Model.Author</p> 
-                        @if(Model.Genre != null && Model.Genre.Any()){
-                            foreach(var genre in Model.Genre){
-                                <span class="badge text-bg-secondary">@genre</span>
-                            }
-                        }
-                    </div>
-                </div> 
-                <p><strong>Description:</strong> @Model.Description</p> 
-            </div>
-            
-             <div class="d-flex  justify-content-between m-4"> 
-                <p><strong>Reviews:</strong></p>
-                <button class="btn btn-primary" type="button" onclick="toggleReviewInput('@safeId')">Add Review</button>
-            </div>
-             @if (Model.BookReviews != null && Model.BookReviews.Any())
-                    {
-                        foreach (var review in Model.BookReviews)
-                        {
-                            <div class="review mb-3 p-3 border">
-                                <p><strong>@review.User.Name</strong> (@review.Date.ToString("MMMM dd, yyyy"))</p>
-                                <p>@review.Review</p>
-                                <p>Rating: @review.Rating/5</p>
-                                <p>Likes: @review.LikeCount</p>
-                            </div>
-                        }
-                    }
-                    else
-                    {
-                        <p>No reviews available for this book.</p>
-                    }
-            <!--Review Area-->
-            <div id="reviewInput-@safeId" class="m-4" style="display: none;">              
-                <textarea class="form-control" rows="3" placeholder="Write your review..."></textarea>
-                <button class="btn btn-danger mt-2" type="button" onclick="toggleReviewInput('@safeId')">Cancel</button>
-                <button class="btn btn-success mt-2" type="button">Submit</button>
-            </div>
 
+                        <div class="d-flex flex-column align-items-start flex-wrap gap-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="mb-0"><strong>Author:</strong> @Model.Author</p>  
+                                <span class="badge text-bg-secondary">@Model.PublishDate.ToString("MMMM dd, yyyy")</span>
+                            </div>
+                            <div class="d-flex flex-wrap">
+                                @if(Model.Genre != null && Model.Genre.Any()){
+                                    foreach(var genre in Model.Genre){
+                                        <span class="badge text-bg-secondary">@genre</span>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-beige" id="currentReadsButton">
+                                <i class="fa-solid fa-book" style="font-size: 16px;"></i>
+                                <span>Add current reads</span>
+                            </button>
+                            <button class="btn btn-beige" id="favoritesButton">
+                                <i class="fa-regular fa-heart" style="font-size: 16px;"></i>
+                                <span>Add Favorites</span>
+                            </button>
+                            <button class="btn btn-beige" id="wishlistButton">
+                                <i class="fa-solid fa-clipboard-list" style="font-size: 16px;"></i>
+                                <span>Add wishlist</span>
+                            </button>
+                        </div>
+                    </div>
+                    <p><strong>Description:</strong> @Model.Description</p> 
+                </div> 
+
+                <!-----------------------------REVIEW AREA---------------------------------------------->
+                <div>
+                    <div class="sticky-top bg-light-subtle py-2 shadow-sm">  <!--Review tab-->
+                    <div class="d-flex justify-content-between m-4"> 
+                        <p><strong>Reviews:</strong></p>
+                        <button class="btn btn-primary stick" type="button" onclick="toggleReviewInput('@safeId')">Add Review</button>
+                    </div>
+
+                    <div id="reviewInput-@safeId" class="m-4" style="display: none;">              
+                        <textarea class="form-control" rows="3" placeholder="Write your review..."></textarea>
+                        <button class="btn btn-danger mt-2" type="button" onclick="toggleReviewInput('@safeId')">Cancel</button>
+                        <button class="btn btn-success mt-2" type="button">Submit</button>
+                    </div>
+                    </div>
+
+                    <!--Reviews-->
+                    <div class="p-4">
+                        @if (Model.BookReviews != null && Model.BookReviews.Any())
+                            {
+                                foreach (var review in Model.BookReviews)
+                                {
+                                    <div class="review mb-3 p-4 shadow-sm rounded-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <p class="mb-0"><strong>@review.User.Name</strong></p>
+                                                <span class="badge d-flex align-items-center gap-1" style="background-color: transparent;">
+                                                    @for (int i = 0; i < review.Rating; i++)
+                                                    {
+                                                        <i class="fa-solid fa-star" style="font-size: 16px; color: #ffc107;"></i> <!-- Yellow star -->
+                                                    }
+                                                    @if (review.Rating < 5)
+                                                    {
+                                                        @for (int i = review.Rating; i < 5; i++)
+                                                        {
+                                                            <i class="fa-regular fa-star" style="font-size: 16px; color: #ffc107;"></i> <!-- Empty star -->
+                                                        }
+                                                    }
+                                                </span>
+
+                                            </div>
+                                            <span class="badge text-bg-secondary">@review.Date.ToString("MMMM dd, yyyy")</span>
+                                        </div>
+                                        <p>@review.Review</p>
+
+                                        <div class="d-flex justify-content-end gap-4">
+                                            <button class="btn btn-link p-0 d-flex align-items-center gap-1" onclick="likeReview(@review.Id)">
+                                                <i class="fa-solid fa-thumbs-up" style="font-size: 16px; color: var(--bs-primary);"></i>
+                                                <span id="like-count-@review.Id">@review.LikeCount</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p>No reviews available for this book.</p>
+                            }
+                    </div>
+
+                </div>
+                    
+            </div>
+    
+            
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
@@ -81,6 +135,45 @@
             reviewInput.style.display = 'block';
         } else {
             reviewInput.style.display = 'none';
+        }
+    }
+    //Implement when apis
+    function toggleCurrentReadsBook(){
+        return;
+    }
+
+    //Implement when apis
+    function toogleCurrentWhichListReadsBook(){
+        return;
+    }
+
+    //Implemented when apis exist
+    function likeReview(reviewId) {
+      return; 
+    }
+
+    document.getElementById('currentReadsButton').addEventListener('click', function() {
+        toggleButton(this, 'current reads');
+    });
+
+    document.getElementById('favoritesButton').addEventListener('click', function() {
+        toggleButton(this, 'Favorites');
+    });
+
+    document.getElementById('wishlistButton').addEventListener('click', function() {
+        toggleButton(this, 'wishlist');
+    });
+
+    function toggleButton(button, label) {
+        const span = button.querySelector('span');
+        if (span.innerText.startsWith('Add')) {
+            span.innerText = `Remove ${label}`;
+            button.classList.remove('btn-beige');
+            button.classList.add('btn-red');
+        } else {
+            span.innerText = `Add ${label}`;
+            button.classList.remove('btn-red');
+            button.classList.add('btn-beige');
         }
     }
 </script>

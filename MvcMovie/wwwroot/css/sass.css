@@ -11844,6 +11844,26 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.btn-beige {
+  background-color: #f8f9fa;
+  color: #212529;
+  border: 1px solid #212529;
+}
+.btn-beige:hover {
+  background-color: white;
+  color: #212529;
+}
+
+.btn-red {
+  background-color: #dc3545;
+  color: #f8f9fa;
+  border: 1px solid #dc3545;
+}
+.btn-red:hover {
+  background-color: #bd2130;
+  color: #f8f9fa;
+}
+
 .align-baseline {
   vertical-align: baseline !important;
 }

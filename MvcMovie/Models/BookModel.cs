@@ -31,7 +31,6 @@
         {  
             BookReviews.Add(review);
         }
- 
         public void RemoveReview(ReviewModel review)
         {  
             BookReviews.Remove(review);

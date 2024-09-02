@@ -1,4 +1,6 @@
-﻿namespace MvcMovie.Models
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace MvcMovie.Models
 {
     public class ReviewModel
     {
@@ -10,7 +12,7 @@
         public string Review { get; set; }
         public DateTime Date { get; set; }
 
-       public ReviewModel(int id, UserModel user, BookModel book, int likeCount, int rating, string review, DateTime date)
+    public ReviewModel(int id, UserModel user, BookModel book, int likeCount, int rating, string review, DateTime date)
         {
             Id = id;
             User = user;
@@ -22,6 +24,17 @@
         }
 
         public void updateLikes(bool add) { 
+            if (add)
+            {
+                LikeCount++;
+            }
+            else if (LikeCount > 0)
+            {
+                LikeCount--;
+            }
+        }
+
+        public void toggleLike(bool add) {
             if (add)
             {
                 LikeCount++;

@@ -61,6 +61,29 @@ $theme-colors: (
   "light":      $light,
   "dark":       $dark
 );
+
+.btn-beige {
+  background-color: $light;
+  color: $dark;
+  border: 1px solid $dark;
+
+  &:hover {
+      background-color: lighten($light, 10%);
+      color: $dark;
+  }
+}
+
+.btn-red {
+  background-color: $danger;
+  color: $light;
+  border: 1px solid $danger;
+
+  &:hover {
+      background-color: darken($danger, 10%);
+      color: $light;
+  }
+}
+
 @import "../../node_modules/bootstrap/scss/utilities/api";
 @each $name, $color in $theme-colors {
   .bg-#{$name} {
