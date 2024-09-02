@@ -12,11 +12,10 @@
         public DateTime PublishDate { get; set; }
         public int ReviewCount { get; set; }
         public List<ReviewModel> BookReviews { get; set; }
-        public string id { get; set; }
 
-        public BookModel(string id, string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating)
-        {   
-            this.id = id;
+
+        public BookModel(string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating, DateTime PublishDate)
+        {
             this.ISBN = ISBN;
             this.Title = Title;
             this.Description = Description;
@@ -26,23 +25,13 @@
             this.Rating = Rating;
             this.ReviewCount = 0;
             this.BookReviews = new List<ReviewModel>();
+            this.PublishDate = PublishDate;
         }
-
-        public void setFavorite(BookModel book)
-        {   
-       
-        }
-
-        public void addWishList(BookModel book)
-        {
-            
-        }
-        
         public void addReview(ReviewModel review)
         {  
             BookReviews.Add(review);
         }
-
+ 
         public void RemoveReview(ReviewModel review)
         {  
             BookReviews.Remove(review);

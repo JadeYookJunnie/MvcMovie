@@ -18,21 +18,48 @@
                 <h5 class="modal-title" id="bookModalLabel-@safeId">@Model.Title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="d-flex flex-row gap-4"> 
-                    <img src="@Url.Content(Model.Picture)" alt="Book Cover" class="img-thumbnail" style="width:200px; height: auto;" />
+            <div class="modal-body gap-2">
+                
+                <div class="d-flex flex-row gap-1 flex-wrap"> 
                     <div class="d-flex flex-column">
-                        <p><strong>Author:</strong> @Model.Author</p>
-                        <p><strong>Description:</strong> @Model.Description</p>
-                    </div> 
+                         <img src="@Url.Content(Model.Picture)" alt="Book Cover" class="img-thumbnail" style="width:200px; height: auto;" />
+                    </div>
+
+                    <div class="d-flex flex-column align-items-start flex-wrap gap-2">
+                        <div> 
+                             <span class="badge text-bg-secondary">@Model.PublishDate.ToString("MMMM dd, yyyy") </span>
+                        </div>
+                        <p><strong>Author:</strong> @Model.Author</p> 
+                        @if(Model.Genre != null && Model.Genre.Any()){
+                            foreach(var genre in Model.Genre){
+                                <span class="badge text-bg-secondary">@genre</span>
+                            }
+                        }
+                    </div>
                 </div> 
+                <p><strong>Description:</strong> @Model.Description</p> 
             </div>
             
              <div class="d-flex  justify-content-between m-4"> 
                 <p><strong>Reviews:</strong></p>
                 <button class="btn btn-primary" type="button" onclick="toggleReviewInput('@safeId')">Add Review</button>
             </div>
-
+             @if (Model.BookReviews != null && Model.BookReviews.Any())
+                    {
+                        foreach (var review in Model.BookReviews)
+                        {
+                            <div class="review mb-3 p-3 border">
+                                <p><strong>@review.User.Name</strong> (@review.Date.ToString("MMMM dd, yyyy"))</p>
+                                <p>@review.Review</p>
+                                <p>Rating: @review.Rating/5</p>
+                                <p>Likes: @review.LikeCount</p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>No reviews available for this book.</p>
+                    }
             <!--Review Area-->
             <div id="reviewInput-@safeId" class="m-4" style="display: none;">              
                 <textarea class="form-control" rows="3" placeholder="Write your review..."></textarea>
