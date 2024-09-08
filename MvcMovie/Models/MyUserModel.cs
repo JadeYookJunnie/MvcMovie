@@ -10,7 +10,7 @@
 
         public List<ReviewModel> ReviewList { get; set; } = new List<ReviewModel>();
 
-       public MyUserModel(string name, string password)
+    public MyUserModel(string name, string password)
         {
             Name = name;
             Password = password; 

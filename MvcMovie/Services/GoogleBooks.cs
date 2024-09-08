@@ -54,18 +54,42 @@ namespace MvcMovie.Services
 
         var booksResponse = await response.Content.ReadFromJsonAsync<GoogleBooksResponse>();
         var books = booksResponse?.Items?.Select(item => new BookModel(
-            item.VolumeInfo?.id ?? "NO ID", //Is ID the same as ISBN?? 
             item.VolumeInfo?.IndustryIdentifiers?.FirstOrDefault()?.Identifier ?? "No ISBN",
             item.VolumeInfo?.Title ?? "No Title",
             item.VolumeInfo?.Description ?? "No Description",
             item.VolumeInfo?.ImageLinks?.Thumbnail ?? "No Image",
             item.VolumeInfo?.Categories ?? new List<string>(),
             item.VolumeInfo?.Authors?.FirstOrDefault() ?? "Unknown",
-            (int)(item.VolumeInfo?.AverageRating ?? 0) // Casting float? to int
-            
+            (int)(item.VolumeInfo?.AverageRating ?? 0),
+            item.VolumeInfo?.PublishDate != null 
+                ? item.VolumeInfo.PublishDate
+                : DateTime.Now
         )).ToList();
+        foreach (var book in books)
+{
+    Console.WriteLine("Book details:");
+    
+    foreach (var prop in book.GetType().GetProperties())
+    {
+        var value = prop.GetValue(book, null);
 
-        if (books == null || books.Count == 0)
+        // Check if the property is a list or collection
+        if (value is System.Collections.IEnumerable && !(value is string))
+        {
+            Console.WriteLine($"{prop.Name}:");
+            foreach (var item in (System.Collections.IEnumerable)value)
+            {
+                Console.WriteLine($"  - {item}");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"{prop.Name}: {value}");
+        }
+    }
+}
+
+        if (books == null || books.Count() == 0)
         {
             break; 
         }
@@ -101,6 +125,7 @@ namespace MvcMovie.Services
         public ImageLinks ImageLinks { get; set; }
         public List<string> Categories { get; set; }
         public List<string> Authors { get; set; }
+        public DateTime PublishDate { get; set; }
         public float? AverageRating { get; set; } // Nullable float to handle missing values
     }
 
