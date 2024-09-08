@@ -28,8 +28,8 @@
 
                         <div class="d-flex flex-column align-items-start flex-wrap gap-2">
                             <div class="d-flex justify-content-between align-items-center">
-                                <p class="mb-0"><strong>Author:</strong> @Model.Author</p>  
-                                <span class="badge  bg-primary">@Model.PublishDate.ToString("MMMM dd, yyyy")</span>
+                                <p class="mb-0"><strong>Author:</strong> @Model.Author</p>   
+                                @* <span class="badge  bg-primary">@Model.PublishDate.ToString("MMMM dd, yyyy")</span> all  published date are PublishDate: 01/01/0001 00:00:00 so I will not include it *@ 
                             </div>
                             <div class="d-flex flex-wrap gap-2">
                                 @if(Model.Genre != null && Model.Genre.Any()){
@@ -149,7 +149,7 @@
 
     //Implemented when apis exist
     function likeReview(reviewId) {
-      return; 
+    return; 
     }
 
     document.getElementById('currentReadsButton').addEventListener('click', function() {

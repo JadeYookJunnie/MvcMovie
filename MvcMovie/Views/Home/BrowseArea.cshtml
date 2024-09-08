@@ -3,29 +3,31 @@
     ViewData["Title"] = "BrowseArea";
     ViewBag.ShowHeader = true;
 }
-<form method="get" action="/Home/BrowseArea">
-    <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fas fa-search"></i></span>
-        <!-- Input field for the search query -->
-        <input type="text" name="query" class="form-control" placeholder="Search a book" value="@Context.Request.Query["query"]">
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary">Search</button>
+<div class="content-fluid">
+    <form method="get" action="/Home/BrowseArea">
+        <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <!-- Input field for the search query -->
+            <input type="text" name="query" class="form-control" placeholder="Search a book" value="@Context.Request.Query["query"]">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <div class="overflow-auto scrollable-content vh-100 container-fluid">
+
+        @if (Model != null && Model.Any())
+        {
+            <ul>
+                @foreach (var book in Model)
+                {
+                    @await Html.PartialAsync("_Book", book)
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No books available.</p>
+        }
     </div>
-</form>
-
-<div class="overflow-auto vh-100 container-fluid">
-
-    @if (Model != null && Model.Any())
-    {
-        <ul>
-            @foreach (var book in Model)
-            {
-                @await Html.PartialAsync("_Book", book)
-            }
-        </ul>
-    }
-    else
-    {
-        <p>No books available.</p>
-    }
 </div>
