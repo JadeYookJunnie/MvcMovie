@@ -27,10 +27,11 @@ namespace MvcMovie.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> BrowseArea()
+        public async Task<IActionResult> BrowseArea(string query)
         {        // Fetch books from Google Books API
-                var books = await _googleBooksService.SearchAllBooksAsync(null);
+                var books = await _googleBooksService.SearchAllBooksAsync(query);
                 Console.WriteLine("Adding book " + books);
+                Console.WriteLine("Adding book " + query);
                 return View(books);
     
         }
