@@ -3,19 +3,16 @@
     ViewData["Title"] = "BrowseArea";
     ViewBag.ShowHeader = true;
 }
-<div class="content-fluid">
+<div class="w-100 d-flex flex-column">
     <form method="get" action="/Home/BrowseArea">
         <div class="input-group mb-3">
             <span class="input-group-text"><i class="fas fa-search"></i></span>
-            <!-- Input field for the search query -->
             <input type="text" name="query" class="form-control" placeholder="Search a book" value="@Context.Request.Query["query"]">
-            <!-- Submit button -->
             <button type="submit" class="btn btn-primary">Search</button>
         </div>
     </form>
 
-    <div class="overflow-auto scrollable-content vh-100 container-fluid">
-
+    <div class="scrollable-content" style="overflow-y: auto; max-height: 75vh;">
         @if (Model != null && Model.Any())
         {
             <ul>
