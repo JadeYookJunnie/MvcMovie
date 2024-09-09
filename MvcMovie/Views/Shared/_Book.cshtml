@@ -4,7 +4,8 @@
     var safeId = Model.ISBN.Replace(":", "_").Replace(" ", "_"); // Replace unsafe characters
 }
 <div class="toast-container position-fixed top-0 end-0 p-3">
-    <div id="errorToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <!-- Error Toast -->
+    <div id="errorToast" class="toast bg-danger text-white" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
             <strong class="me-auto">Error</strong>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -13,7 +14,19 @@
             Please fill out the required fields.
         </div>
     </div>
+
+    <!-- Success Toast -->
+    <div id="successToast" class="toast bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Success</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Review submitted successfully!
+        </div>
+    </div>
 </div>
+
 <div class="d-flex m-2 py-2 border-bottom" data-bs-toggle="modal" data-bs-target="#bookModal-@safeId" style="cursor: pointer;">
     <img src="@Url.Content(Model.Picture)" alt="Book Cover" class="img-thumbnail" style="width:90px; height: auto;" />
     <div class="ms-3">
@@ -213,52 +226,44 @@
         const safeId = input.id.split('-')[1];
         currentRating[safeId] = input.value; // Store the rating value
     }
-
     function submitReview(safeId) {
-    // Get the form inputs
-    const titleInput = document.querySelector(`#reviewInput-${safeId} input[type="text"]`);
-    const ratingInput = document.querySelector(`#ratingInput-${safeId}`);
-    const reviewTextarea = document.querySelector(`#reviewInput-${safeId} textarea`);
+        const reviewTitle = document.querySelector(`#reviewInput-${safeId} input[aria-label="reviewTilte"]`);
+        const ratingInput = document.querySelector(`#reviewInput-${safeId} input[id="ratingInput-${safeId}"]`);
+        const reviewText = document.querySelector(`#reviewInput-${safeId} textarea`);
 
-    let hasError = false;
-
-    // Reset previous error states
-    titleInput.classList.remove('border-danger');
-    ratingInput.classList.remove('border-danger');
-    reviewTextarea.classList.remove('border-danger');
-
-    // Validate title
-    if (titleInput.value.trim() === "") {
-        titleInput.classList.add('border-danger'); // Highlight input in red
-        hasError = true;
+        // Check if all fields are filled
+        if (!reviewTitle.value || !ratingInput.value || !reviewText.value) {
+            showErrorToast();
+            markFieldsAsInvalid([reviewTitle, ratingInput, reviewText]);
+        } else {
+            showSuccessToast();
+            clearFields([reviewTitle, ratingInput, reviewText]);
+        }
     }
 
-    // Validate rating (ensure it's within the range)
-    if (ratingInput.value.trim() === "" || ratingInput.value < 1 || ratingInput.value > 5) {
-        ratingInput.classList.add('border-danger'); // Highlight input in red
-        hasError = true;
+    function markFieldsAsInvalid(fields) {
+        fields.forEach(field => {
+            if (!field.value) {
+                field.classList.add('is-invalid');
+            }
+        });
     }
 
-    // Validate review text
-    if (reviewTextarea.value.trim() === "") {
-        reviewTextarea.classList.add('border-danger'); // Highlight input in red
-        hasError = true;
+    function clearFields(fields) {
+        fields.forEach(field => {
+            field.value = '';
+            field.classList.remove('is-invalid');
+        });
     }
 
-    // If there's an error, show the toast notification
-    if (hasError) {
+    function showErrorToast() {
         const errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
         errorToast.show();
-        return; // Prevent form submission if validation fails
     }
 
-    console.log('Submitting review for:', { title: titleInput.value, rating: ratingInput.value, review: reviewTextarea.value });
-
-    // Clear inputs after successful submission
-    titleInput.value = "";
-    ratingInput.value = "";
-    reviewTextarea.value = "";
-    toggleReviewInput(safeId); // Hide review input after submission
-}
+    function showSuccessToast() {
+        const successToast = new bootstrap.Toast(document.getElementById('successToast'));
+        successToast.show();
+    }
 
 </script>
