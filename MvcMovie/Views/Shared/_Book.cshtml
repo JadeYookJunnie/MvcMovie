@@ -3,6 +3,17 @@
 @{
     var safeId = Model.ISBN.Replace(":", "_").Replace(" ", "_"); // Replace unsafe characters
 }
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="errorToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Error</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Please fill out the required fields.
+        </div>
+    </div>
+</div>
 <div class="d-flex m-2 py-2 border-bottom" data-bs-toggle="modal" data-bs-target="#bookModal-@safeId" style="cursor: pointer;">
     <img src="@Url.Content(Model.Picture)" alt="Book Cover" class="img-thumbnail" style="width:90px; height: auto;" />
     <div class="ms-3">
@@ -65,10 +76,23 @@
                         <button class="btn btn-primary stick" type="button" onclick="toggleReviewInput('@safeId')">Add Review</button>
                     </div>
 
-                    <div id="reviewInput-@safeId" class="m-4" style="display: none;">              
-                        <textarea class="form-control" rows="3" placeholder="Write your review..."></textarea>
+                    <div id="reviewInput-@safeId" class="m-4" style="display: none;">     
+                        <div class="grid gap-2 "> 
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="basic-addon1">Title</span>
+
+                                <input type="text" class="form-control" placeholder="Review Title" aria-label="reviewTilte" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-1">
+                                <span class="input-group-text" id="basic-addon1">Rating</span>
+
+                                <input type="number" id="ratingInput-@safeId" class="form-control" placeholder="1-5" min="0" max="5" value="0" style="width: 80px;" oninput="limitRating(this)">
+                            </div>
+                            <textarea class="form-control" rows="3" placeholder="Write your review..."></textarea>
+                        </div>
+                        
                         <button class="btn btn-danger mt-2" type="button" onclick="toggleReviewInput('@safeId')">Cancel</button>
-                        <button class="btn btn-success mt-2" type="button">Submit</button>
+                        <button class="btn btn-success mt-2" type="button" onclick="submitReview('@safeId')">Submit</button>
                     </div>
                     </div>
 
@@ -176,4 +200,65 @@
             button.classList.add('btn-beige');
         }
     }
+
+    let currentRating = {}; // Store the rating for each review modal
+
+    // Function to ensure rating input stays between 1 and 5
+    function limitRating(input) {
+        if (input.value > 5) {
+            input.value = 5; // Max value of 5
+        } else if (input.value < 0) {
+            input.value = 0; // Min value of 1
+        }
+        const safeId = input.id.split('-')[1];
+        currentRating[safeId] = input.value; // Store the rating value
+    }
+
+    function submitReview(safeId) {
+    // Get the form inputs
+    const titleInput = document.querySelector(`#reviewInput-${safeId} input[type="text"]`);
+    const ratingInput = document.querySelector(`#ratingInput-${safeId}`);
+    const reviewTextarea = document.querySelector(`#reviewInput-${safeId} textarea`);
+
+    let hasError = false;
+
+    // Reset previous error states
+    titleInput.classList.remove('border-danger');
+    ratingInput.classList.remove('border-danger');
+    reviewTextarea.classList.remove('border-danger');
+
+    // Validate title
+    if (titleInput.value.trim() === "") {
+        titleInput.classList.add('border-danger'); // Highlight input in red
+        hasError = true;
+    }
+
+    // Validate rating (ensure it's within the range)
+    if (ratingInput.value.trim() === "" || ratingInput.value < 1 || ratingInput.value > 5) {
+        ratingInput.classList.add('border-danger'); // Highlight input in red
+        hasError = true;
+    }
+
+    // Validate review text
+    if (reviewTextarea.value.trim() === "") {
+        reviewTextarea.classList.add('border-danger'); // Highlight input in red
+        hasError = true;
+    }
+
+    // If there's an error, show the toast notification
+    if (hasError) {
+        const errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
+        errorToast.show();
+        return; // Prevent form submission if validation fails
+    }
+
+    console.log('Submitting review for:', { title: titleInput.value, rating: ratingInput.value, review: reviewTextarea.value });
+
+    // Clear inputs after successful submission
+    titleInput.value = "";
+    ratingInput.value = "";
+    reviewTextarea.value = "";
+    toggleReviewInput(safeId); // Hide review input after submission
+}
+
 </script>
