@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jadel\\Source\\Repos\\MvcMovieReload\\MvcMovie\\MvcMovie.csproj": {}
+    "C:\\Users\\jadel\\source\\repos\\MvcMovieReload\\MvcMovie\\MvcMovie.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jadel\\Source\\Repos\\MvcMovieReload\\MvcMovie\\MvcMovie.csproj": {
+    "C:\\Users\\jadel\\source\\repos\\MvcMovieReload\\MvcMovie\\MvcMovie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jadel\\Source\\Repos\\MvcMovieReload\\MvcMovie\\MvcMovie.csproj",
+        "projectUniqueName": "C:\\Users\\jadel\\source\\repos\\MvcMovieReload\\MvcMovie\\MvcMovie.csproj",
         "projectName": "MvcMovie",
-        "projectPath": "C:\\Users\\jadel\\Source\\Repos\\MvcMovieReload\\MvcMovie\\MvcMovie.csproj",
+        "projectPath": "C:\\Users\\jadel\\source\\repos\\MvcMovieReload\\MvcMovie\\MvcMovie.csproj",
         "packagesPath": "C:\\Users\\jadel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jadel\\Source\\Repos\\MvcMovieReload\\MvcMovie\\obj\\",
+        "outputPath": "C:\\Users\\jadel\\source\\repos\\MvcMovieReload\\MvcMovie\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jadel\\AppData\\Roaming\\NuGet\\NuGet.Config",

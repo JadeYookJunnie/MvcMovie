@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g2JqBNTQ/6w=",
+  "dgSpecHash": "A1LPYE60jjs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\jadel\\Source\\Repos\\MvcMovieReload\\MvcMovie\\MvcMovie.csproj",
+  "projectFilePath": "C:\\Users\\jadel\\source\\repos\\MvcMovieReload\\MvcMovie\\MvcMovie.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jadel\\.nuget\\packages\\awssdk.core\\3.7.400.13\\awssdk.core.3.7.400.13.nupkg.sha512",
     "C:\\Users\\jadel\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.400.13\\awssdk.dynamodbv2.3.7.400.13.nupkg.sha512",
