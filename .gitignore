@@ -27,10 +27,13 @@ js/app.min.js
 *.userprefs
 
 # Build results
+<<<<<<< HEAD
 bin/
 obj/
 MvcMovie/bin/
 MvcMovie/obj/
+=======
+>>>>>>> dev
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -81,7 +84,10 @@ artifacts/
 *.tlh
 *.tmp
 *.tmp_proj
+<<<<<<< HEAD
 *.cache
+=======
+>>>>>>> dev
 *.log
 *.vspscc
 *.vssscc
@@ -166,7 +172,10 @@ publish/
 
 # NuGet Packages
 *.nupkg
+<<<<<<< HEAD
 *.snupkg
+=======
+>>>>>>> dev
 # The packages folder can be ignored because of Package Restore
 **/packages/*
 # except build/, which is used as an MSBuild target.
@@ -265,10 +274,17 @@ _Pvt_Extensions
 .fake/
 
 # JetBrains Rider
+<<<<<<< HEAD
 .vscode/
 .idea/
 *.sln.iml
 
+=======
+.idea/
+*.sln.iml
+
+=======
+>>>>>>> dev
 **/obj/
 
 # Terraform files

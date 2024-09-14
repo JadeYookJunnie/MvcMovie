@@ -7,8 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.400.13" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+=======
+    <PackageReference Include="Blazorise" Version="1.6.0" />
+    <PackageReference Include="Blazorise.AntDesign" Version="1.6.0" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.6.0" />
+    <PackageReference Include="bootstrap" Version="5.3.3" />
+>>>>>>> dev
   </ItemGroup>
 
 </Project>

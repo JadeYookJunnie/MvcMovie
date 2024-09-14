@@ -1,6 +1,7 @@
 ﻿@model MvcMovie.Models.HomeModel
 @{
     ViewData["Title"] = "Home Page";
+    ViewBag.ShowHeader = true;
 }
 
 @{
@@ -11,10 +12,10 @@
 <h1>Home</h1>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Test page - most recent docker commit</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
 <a href="@Url.Action("Book", "Home")" class="list-group-item list-group-item-action bg-light">Book</a>
-<a href="@Url.Action("Login", "Home")" class="list-group-item list-group-item-action bg-light">Login</a>
+<a href="https://betterreads-527-temp.auth.ap-southeast-2.amazoncognito.com/oauth2/authorize?response_type=code&client_id=43vph9vuvjvsr9gdnnofk54per&redirect_uri=https://localhost:7030/Home/MyUser" class="list-group-item list-group-item-action bg-light">Login</a>
 <a href="@Url.Action("MyUser", "Home")" class="list-group-item list-group-item-action bg-light">User</a>
