@@ -6,6 +6,8 @@ namespace MvcMovie.Controllers
 {
     public class HomeController : Controller
     {
+        public DynamoController dynamoController = new DynamoController();
+        //string current = dynamoController.getReads();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
