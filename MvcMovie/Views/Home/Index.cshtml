@@ -6,16 +6,48 @@
 
 @{
     ViewBag.Title = "Home";
-
 }
 
-<h1>Home</h1>
+<div class="container mt-5 align-items-center">
+    <div class="row">
+        <!-- Large Welcome Section -->
+        <div class="col-md-7 d-flex flex-column justify-content-center pt-5">
+            <h1 class="display-4 mb-3">Welcome</h1>
+            <p class="lead mb-5">Get started with Better Reads with the options to the right.</p>
+        </div>
 
-<div class="text-center">
-    <h1 class="display-4">Test page - most recent docker commit</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <!-- Card Column Section -->
+        <div class="col-md-5 mt-5">
+            <div class="row g-1">
+                <div class="col-md-12 mb-2">
+                    <a href="https://betterreads-temp-527.auth.us-east-1.amazoncognito.com/login?response_type=code&client_id=6aomva7s8ai8enq5uov9q5ff0i&redirect_uri=https://ethanmacleod.com/Home/MyUser" class="card bg-light text-center square-card text-decoration-none shadow-sm rounded">
+                        <div class="card-body d-flex align-items-center justify-content-center py-2">
+                            Login
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12 mb-2">
+                    <a href="@Url.Action("BrowseArea", "Home")" class="card px-2 bg-light text-center square-card text-decoration-none shadow-sm rounded">
+                        <div class="card-body d-flex align-items-center justify-content-center py-2">
+                            Browse Area
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12 mb-2">
+                    <a href="@Url.Action("MyUser", "Home")" class="card bg-light text-center square-card text-decoration-none shadow-sm rounded">
+                        <div class="card-body d-flex align-items-center justify-content-center py-2">
+                            User
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12 mb-2">
+                    <a href="@Url.Action("Book", "Home")" class="card bg-light text-center square-card text-decoration-none shadow-sm rounded">
+                        <div class="card-body d-flex align-items-center justify-content-center py-2">
+                            Book
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<a href="@Url.Action("Book", "Home")" class="list-group-item list-group-item-action bg-light">Book</a>
-<a href="https://betterreads-527-temp.auth.ap-southeast-2.amazoncognito.com/oauth2/authorize?response_type=code&client_id=43vph9vuvjvsr9gdnnofk54per&redirect_uri=https://localhost:7030/Home/MyUser" class="list-group-item list-group-item-action bg-light">Login</a>
-<a href="@Url.Action("MyUser", "Home")" class="list-group-item list-group-item-action bg-light">User</a>

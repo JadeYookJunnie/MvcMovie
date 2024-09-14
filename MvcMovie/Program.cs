@@ -1,20 +1,22 @@
 using Blazorise;
 using Blazorise.AntDesign;
 using Blazorise.Icons.FontAwesome;
+using DotNetEnv; 
+using MvcMovie.Services;
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Load environment variables
+Env.Load();
+string googleBooksApiKey = Environment.GetEnvironmentVariable("BOOKS_API");
+
+// Register services
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient<GoogleBooksService>(client =>
+{
+    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {googleBooksApiKey}");
+});
 
-// Add Blazorise services and configure them.
-builder.Services
-    .AddBlazorise( options =>
-    {
-        options.Immediate = true;
-    } )
-    .AddAntDesignProviders()
-    .AddFontAwesomeIcons();
-
+builder.Services.AddMemoryCache(); // Register IMemoryCache
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

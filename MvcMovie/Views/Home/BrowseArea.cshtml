@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MvcMovie.Models.BookModel>
+@{
+    ViewData["Title"] = "BrowseArea";
+    ViewBag.ShowHeader = true;
+}
+<div class="w-100 d-flex flex-column">
+    <form method="get" action="/Home/BrowseArea">
+        <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input type="text" name="query" class="form-control" placeholder="Search a book" value="@Context.Request.Query["query"]">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <div class="scrollable-content" style="overflow-y: auto; max-height: 75vh;">
+        @if (Model != null && Model.Any())
+        {
+            <ul>
+                @foreach (var book in Model)
+                {
+                    @await Html.PartialAsync("_Book", book)
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No books available.</p>
+        }
+    </div>
+</div>

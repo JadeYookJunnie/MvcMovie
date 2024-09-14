@@ -1,20 +1,16 @@
 @model MvcMovie.Models.ViewBooksRowModel
 
 
-<div class="card m-2">
-    <div class="card-header">
-        @Model.Title
-    </div>
-    <div class="card-body pt-0 px-1  container-sm ">
-        @foreach (var book in Model.Books.Take(3))
+<div class="pt-0 px-1 overflow-y-auto">
+    @if (Model.Books != null && Model.Books.Any())
+    {
+        @foreach (var book in Model.Books)
         {
-            <div class="d-flex m-2 py-2 border-bottom">
-                <img src="@Url.Content(book.Picture)" alt="Book Cover" class="img-thumbnail" style="width:90px; height: auto;" />
-                <div class="ms-3">
-                    <p class="fs-6 fw-normal mb-1">@book.Title</p>
-                    <p class="fw-light mb-0">@book.Author</p>
-                </div>
-            </div>
+            @await Html.PartialAsync("_Book", book)
         }
-    </div>
+    }
+    else
+    {
+        <p>No books are currently in the list.</p>
+    }
 </div>

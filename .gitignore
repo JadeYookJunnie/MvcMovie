@@ -28,12 +28,17 @@ js/app.min.js
 
 # Build results
 <<<<<<< HEAD
+<<<<<<< HEAD
 bin/
 obj/
 MvcMovie/bin/
 MvcMovie/obj/
 =======
 >>>>>>> dev
+=======
+MvcMovie/bin/
+MvcMovie/obj/
+>>>>>>> origin/FrontendRefinements
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -279,12 +284,15 @@ _Pvt_Extensions
 .idea/
 *.sln.iml
 
+<<<<<<< HEAD
 =======
 .idea/
 *.sln.iml
 
 =======
 >>>>>>> dev
+=======
+>>>>>>> origin/FrontendRefinements
 **/obj/
 
 # Terraform files

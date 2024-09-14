@@ -10,7 +10,7 @@
 
         public List<ReviewModel> ReviewList { get; set; } = new List<ReviewModel>();
 
-       public MyUserModel(string name, string password)
+    public MyUserModel(string name, string password)
         {
             Name = name;
             Password = password; 
@@ -23,7 +23,10 @@
             Friendlist.Add(user);
         }
 
-        public void removeFriend(UserModel user) { }
+        public void removeFriend(UserModel user)
+        {
+            Friendlist.Remove(user);
+        }
 
         public void addBookToWishlist(BookModel book) 
         {

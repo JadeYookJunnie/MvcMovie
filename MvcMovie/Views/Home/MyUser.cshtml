@@ -19,74 +19,91 @@
         "Favourites",
         Model.Favourites.ToList() // Ensure it's a List<BookModel>
     );
+
+    var wishList= new ViewBooksRowModel(
+        "Wishlist",
+        Model.Wishlist.ToList() // Ensure it's a List<BookModel>
+    );
+@* 
+    var reviewsList =  *@
 }
 
 <!-- url to signout:
-    https://betterreads-527-temp.auth.ap-southeast-2.amazoncognito.com/logout?client_id=43vph9vuvjvsr9gdnnofk54per&logout_uri=https://localhost:7030/Home/Login
+    https://betterreads-temp-527.auth.us-east-1.amazoncognito.com/logout?response_type=code&client_id=6aomva7s8ai8enq5uov9q5ff0i&logout_uri=https://localhost:7030/Home/Login
     -->
-
 <div class="w-100 d-flex flex-column justify-content-center"> 
-    <div class="mh-25 p-2">
-        <p class="fs-3 mb-0">User's Name</p> <!-- mb-0 removes bottom margin -->
-        <p class="fs-6 mb-0">User's Name</p>
-    </div>
-    <ul class="nav nav-tabs pt-4">
-        <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#Overview">Overview</a>
-        </li>
+    <!-- Sticky outer tabs -->
+    <div class="sticky-top bg-white">
+        <div class="d-flex justify-content-between align-items-start mh-25 p-2">
+            <div id="userDetails" class="mh-25">
+                <p class="fs-3 mb-0">User's Name</p> <!-- Large name -->
+                <p class="fs-6 mb-0">User's Name</p> <!-- Small name to align with stats -->
+            </div>
 
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#Booklist">Booklist</a>
-        </li>
+            <div id="bookStats" class="d-flex justify-content-center align-items-start mt-4">
+                <div class="d-flex flex-column align-items-center mx-2">
+                    <p class="fs-6 mb-0 text-center"> @(Model.CurrentReads != null ? Model.CurrentReads.Count : 0)</p>
+                    <p class="fs-6 mb-0 text-center">Current Reads</p>
+                </div>
+                <div class="d-flex flex-column align-items-center mx-2">
+                    <p class="fs-6 mb-0 text-center"> @(Model.Favourites != null ? Model.Favourites.Count : 0)</p>
+                    <p class="fs-6 mb-0 text-center">Favourites</p>
+                </div>
+                <div class="d-flex flex-column align-items-center mx-2">
+                    <p class="fs-6 mb-0 text-center"> @(Model.Wishlist != null ? Model.Wishlist.Count : 0)</p>
+                    <p class="fs-6 mb-0 text-center">Wishlist</p>
+                </div>
+            </div>
+        </div>
+        <ul class="nav nav-tabs pt-4">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#Booklist">Booklist</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#Reviews">Reviews</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#Friends">Friends</a>
+            </li>
+        </ul>
+    </div>  
 
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#Reviews">Reviews</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#Reviews">Friends</a>
-        </li>
-    </ul>
-
-    <!-- Tab panes -->
-    <div class="tab-content">
-    <div class="tab-pane container active" id="Overview">
-        <div class="p-2 d-flex  flex-row ">
-            <div class="d-flex flex-column">
-                <div class="card">Stats </div>
-                <div class="d-flex flex-row">
+    <!-- Tab content container with scrollable book section -->
+    <div class="tab-content scrollable-content" style="height: vh; overflow-y: auto;">
+        <div class="tab-pane container fade show active" id="Booklist">
+            <!-- Sticky inner tabs for "Current Reads", "Favourites", "Wishlist" -->
+            <ul class="nav nav-pills py-4">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#CurrentReads">Current Reads</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#Favourites">Favourites</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#WishList">Wishlist</a>
+                </li>
+            </ul>
+            
+            <!-- Scrollable content area for the books -->
+            <div class="tab-content scrollable-content" style="height: 55vh; overflow-y: auto;">
+                <div class="tab-pane container fade show active" id="CurrentReads">
                     @await Html.PartialAsync("_BookList", currentReadsModel)
+                </div>
+                <div class="tab-pane container fade" id="Favourites">
                     @await Html.PartialAsync("_BookList", favouritesModel)
                 </div>
-            </div>
-            <div class="card m-2" style="width: 18rem;">
-                <div class="card-header">
-                    Activities
+                <div class="tab-pane container fade" id="WishList">
+                    @await Html.PartialAsync("_BookList", wishList)
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
             </div>
         </div>
-    
-    </div>
-    <div class="tab-pane container fade" id="Booklist">
-    
-    
-    
-    </div>
-    <div class="tab-pane container fade" id="Reviews">
-    
-    
-    
-    </div>
 
+        <!-- Other outer tabs -->
+        <div class="tab-pane container fade" id="Reviews">
+            <!-- Reviews content -->
+        </div>
         <div class="tab-pane container fade" id="Friends">
-    
-    
-    
+            <!-- Friends content -->
         </div>
     </div>
-</div> 
+</div>

@@ -8,22 +8,29 @@ using System.Text.Json;
 namespace MvcMovie.Models
 {
     public class BookModel
-    {
+    {   
         public string ISBN { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Picture { get; set; } //for imagesource, can change
+        public string Picture { get; set; }
         public List<string> Genre { get; set; }
         public string Author { get; set; }
         public int Rating { get; set; }
+        public DateTime PublishDate { get; set; }
         public int ReviewCount { get; set; }
+        public List<ReviewModel> BookReviews { get; set; }
 
 
+<<<<<<< HEAD
         private readonly IDynamoDBContext _context;
 
         private readonly IAmazonDynamoDB _dynamoDB;
 
         public BookModel(string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating, int ReviewCount){
+=======
+        public BookModel(string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating, DateTime PublishDate)
+        {
+>>>>>>> origin/FrontendRefinements
             this.ISBN = ISBN;
             this.Title = Title;
             this.Description = Description;
@@ -31,8 +38,11 @@ namespace MvcMovie.Models
             this.Genre = Genre;
             this.Author = Author;
             this.Rating = Rating;
-            this.ReviewCount = ReviewCount;
+            this.ReviewCount = 0;
+            this.BookReviews = new List<ReviewModel>();
+            this.PublishDate = PublishDate;
         }
+<<<<<<< HEAD
 
 
         public void setFavorite()
@@ -124,5 +134,15 @@ namespace MvcMovie.Models
 
             return response.HttpStatusCode == HttpStatusCode.OK;
         }
+=======
+        public void addReview(ReviewModel review)
+        {  
+            BookReviews.Add(review);
+        }
+        public void RemoveReview(ReviewModel review)
+        {  
+            BookReviews.Remove(review);
+        }
+>>>>>>> origin/FrontendRefinements
     }
 }

@@ -43,3 +43,8 @@ variable "docker_repository" {
   type        = string
   default     = "terraform-docker-repo"
 }
+
+variable "book_api_arn" {
+  description = "Arn for google books api key"
+  type        = string
+}

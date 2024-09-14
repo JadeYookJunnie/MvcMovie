@@ -1,9 +1,10 @@
 resource "aws_lb" "ecs_alb" {
-  name               = "ecs-alb"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [aws_security_group.security_group.id]
-  subnets            = [aws_subnet.subnet.id, aws_subnet.subnet2.id]
+  name                       = "ecs-alb"
+  internal                   = false
+  load_balancer_type         = "application"
+  security_groups            = [aws_security_group.security_group.id]
+  subnets                    = [aws_subnet.subnet.id, aws_subnet.subnet2.id]
+  enable_deletion_protection = false
 
   tags = {
     Name = "ecs-alb"
