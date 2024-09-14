@@ -371,4 +371,8 @@
     <Import Project="$(NuGetPackageRoot)blazorise.icons.fontawesome\1.6.0\buildTransitive\Blazorise.Icons.FontAwesome.props" Condition="Exists('$(NuGetPackageRoot)blazorise.icons.fontawesome\1.6.0\buildTransitive\Blazorise.Icons.FontAwesome.props')" />
     <Import Project="$(NuGetPackageRoot)blazorise.antdesign\1.6.0\buildTransitive\Blazorise.AntDesign.props" Condition="Exists('$(NuGetPackageRoot)blazorise.antdesign\1.6.0\buildTransitive\Blazorise.AntDesign.props')" />
   </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">C:\Users\jadel\.nuget\packages\awssdk.core\3.7.400.13</PkgAWSSDK_Core>
+    <PkgAWSSDK_DynamoDBv2 Condition=" '$(PkgAWSSDK_DynamoDBv2)' == '' ">C:\Users\jadel\.nuget\packages\awssdk.dynamodbv2\3.7.400.13</PkgAWSSDK_DynamoDBv2>
+  </PropertyGroup>
 </Project>
