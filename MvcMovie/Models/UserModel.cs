@@ -23,7 +23,6 @@ namespace MvcMovie.Models
         public List<UserModel> Friends { get; set; }
         public List<ReviewModel> MyReviews { get; set; }
 
-<<<<<<< HEAD
 
         private readonly IDynamoDBContext _context;
 
@@ -132,8 +131,6 @@ namespace MvcMovie.Models
 
             return response.HttpStatusCode == HttpStatusCode.OK;
         }
-=======
->>>>>>> origin/FrontendRefinements
 
     }
 }

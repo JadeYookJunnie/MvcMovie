@@ -17,7 +17,6 @@
     <PackageReference Include="bootstrap" Version="5.3.3" />
 
 
-=======
     <PackageReference Include="DotNetEnv" Version="3.1.0" />
     <PackageReference Include="System.Net.Http.Json" Version="8.0.0" />
 

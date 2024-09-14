@@ -175,3 +175,5 @@ C:\Users\jadel\Source\Repos\MvcMovieReload\MvcMovie\obj\Debug\net8.0\refint\MvcM
 C:\Users\jadel\Source\Repos\MvcMovieReload\MvcMovie\obj\Debug\net8.0\MvcMovie.pdb
 C:\Users\jadel\Source\Repos\MvcMovieReload\MvcMovie\obj\Debug\net8.0\MvcMovie.genruntimeconfig.cache
 C:\Users\jadel\Source\Repos\MvcMovieReload\MvcMovie\obj\Debug\net8.0\ref\MvcMovie.dll
+C:\Users\jadel\source\repos\MvcMovieReload\MvcMovie\bin\Debug\net8.0\DotNetEnv.dll
+C:\Users\jadel\source\repos\MvcMovieReload\MvcMovie\bin\Debug\net8.0\Sprache.dll
