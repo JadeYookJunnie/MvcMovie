@@ -18,11 +18,11 @@ namespace MvcMovie.Models
         public int Rating { get; set; }
         public int ReviewCount { get; set; }
 
-<<<<<<< HEAD
+
         private readonly IDynamoDBContext _context;
 
         private readonly IAmazonDynamoDB _dynamoDB;
-=======
+
         public BookModel(string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating, int ReviewCount){
             this.ISBN = ISBN;
             this.Title = Title;
@@ -33,7 +33,7 @@ namespace MvcMovie.Models
             this.Rating = Rating;
             this.ReviewCount = ReviewCount;
         }
->>>>>>> dev
+
 
         public void setFavorite()
         {
