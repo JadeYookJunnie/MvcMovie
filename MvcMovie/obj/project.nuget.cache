@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "BOQ/AEAmMv4=",
+  "dgSpecHash": "L75bXovc+wg=",
   "success": true,
   "projectFilePath": "C:\\Users\\jadel\\source\\repos\\MvcMovieReload\\MvcMovie\\MvcMovie.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\jadel\\.nuget\\packages\\awssdk.core\\3.7.400.13\\awssdk.core.3.7.400.13.nupkg.sha512",
-    "C:\\Users\\jadel\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.400.13\\awssdk.dynamodbv2.3.7.400.13.nupkg.sha512",
+    "C:\\Users\\jadel\\.nuget\\packages\\awssdk.core\\3.7.400.16\\awssdk.core.3.7.400.16.nupkg.sha512",
+    "C:\\Users\\jadel\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.400.16\\awssdk.dynamodbv2.3.7.400.16.nupkg.sha512",
     "C:\\Users\\jadel\\.nuget\\packages\\blazorise\\1.6.0\\blazorise.1.6.0.nupkg.sha512",
     "C:\\Users\\jadel\\.nuget\\packages\\blazorise.antdesign\\1.6.0\\blazorise.antdesign.1.6.0.nupkg.sha512",
     "C:\\Users\\jadel\\.nuget\\packages\\blazorise.icons.fontawesome\\1.6.0\\blazorise.icons.fontawesome.1.6.0.nupkg.sha512",
@@ -22,7 +22,6 @@
     "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\1.1.2\\microsoft.extensions.configuration.abstractions.1.1.2.nupkg.sha512",
     "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
-    "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
     "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.1\\microsoft.extensions.logging.abstractions.8.0.1.nupkg.sha512",
     "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
     "C:\\Users\\jadel\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",

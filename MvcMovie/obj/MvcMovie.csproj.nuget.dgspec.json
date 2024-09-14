@@ -48,7 +48,7 @@
           "dependencies": {
             "AWSSDK.DynamoDBv2": {
               "target": "Package",
-              "version": "[3.7.400.13, )"
+              "version": "[3.7.400.16, )"
             },
             "Blazorise": {
               "target": "Package",
@@ -65,10 +65,6 @@
             "DotNetEnv": {
               "target": "Package",
               "version": "[3.1.0, )"
-            },
-            "Microsoft.Extensions.Logging": {
-              "target": "Package",
-              "version": "[8.0.0, )"
             },
             "System.Net.Http.Json": {
               "target": "Package",

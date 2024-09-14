@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "AWSSDK.Core/3.7.400.13": {
+      "AWSSDK.Core/3.7.400.16": {
         "type": "package",
         "compile": {
           "lib/net8.0/AWSSDK.Core.dll": {
@@ -15,10 +15,10 @@
           }
         }
       },
-      "AWSSDK.DynamoDBv2/3.7.400.13": {
+      "AWSSDK.DynamoDBv2/3.7.400.16": {
         "type": "package",
         "dependencies": {
-          "AWSSDK.Core": "[3.7.400.13, 4.0.0)"
+          "AWSSDK.Core": "[3.7.400.16, 4.0.0)"
         },
         "compile": {
           "lib/net8.0/AWSSDK.DynamoDBv2.dll": {
@@ -502,27 +502,6 @@
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net6.0/_._": {}
-        }
-      },
-      "Microsoft.Extensions.Logging/8.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection": "8.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Options": "8.0.0"
-        },
-        "compile": {
-          "lib/net8.0/Microsoft.Extensions.Logging.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Microsoft.Extensions.Logging.dll": {
             "related": ".xml"
           }
         },
@@ -1987,15 +1966,15 @@
     }
   },
   "libraries": {
-    "AWSSDK.Core/3.7.400.13": {
-      "sha512": "hEW5F8dMLyVRJ+LrTJVwpaOSVIsfG0Yvo2IMTDB9gxbDRzHv/iu/fzUhwNLlLuV+vel6Z3yq3AGaTFbA0Khj5w==",
+    "AWSSDK.Core/3.7.400.16": {
+      "sha512": "vz+dqunrmVN4xDBI2aeSIDap8cKZcer/rRph4ODn8uzcdA2t1QAzjqnR/VuetcuHtVCb+LN8L94m3BGLFq0GQQ==",
       "type": "package",
-      "path": "awssdk.core/3.7.400.13",
+      "path": "awssdk.core/3.7.400.16",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "awssdk.core.3.7.400.13.nupkg.sha512",
+        "awssdk.core.3.7.400.16.nupkg.sha512",
         "awssdk.core.nuspec",
         "images/AWSLogo.png",
         "lib/net35/AWSSDK.Core.dll",
@@ -2016,17 +1995,17 @@
         "tools/account-management.ps1"
       ]
     },
-    "AWSSDK.DynamoDBv2/3.7.400.13": {
-      "sha512": "qMRyswFNMCSLgc/ytjolXjjvhPgFj/WeG0gFhAInB4/bSi0EEefV6I3Df7R0QcNgEGsFOYLejh5nDHBJIfxDSA==",
+    "AWSSDK.DynamoDBv2/3.7.400.16": {
+      "sha512": "kM//3EswkG0uk9qC615eW3RMmu2obrr+Uy+vqoUwK0y09dD32X5XfMEKr9+A7X+dDgZ/RLP+mYZKbX77T4W+Rg==",
       "type": "package",
-      "path": "awssdk.dynamodbv2/3.7.400.13",
+      "path": "awssdk.dynamodbv2/3.7.400.16",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "analyzers/dotnet/cs/AWSSDK.DynamoDBv2.CodeAnalysis.dll",
         "analyzers/dotnet/cs/SharedAnalysisCode.dll",
-        "awssdk.dynamodbv2.3.7.400.13.nupkg.sha512",
+        "awssdk.dynamodbv2.3.7.400.16.nupkg.sha512",
         "awssdk.dynamodbv2.nuspec",
         "images/AWSLogo.png",
         "lib/net35/AWSSDK.DynamoDBv2.dll",
@@ -2494,38 +2473,6 @@
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "Microsoft.Extensions.Logging/8.0.0": {
-      "sha512": "tvRkov9tAJ3xP51LCv3FJ2zINmv1P8Hi8lhhtcKGqM+ImiTCC84uOPEI4z8Cdq2C3o9e+Aa0Gw0rmrsJD77W+w==",
-      "type": "package",
-      "path": "microsoft.extensions.logging/8.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/net461/Microsoft.Extensions.Logging.targets",
-        "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
-        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Logging.targets",
-        "lib/net462/Microsoft.Extensions.Logging.dll",
-        "lib/net462/Microsoft.Extensions.Logging.xml",
-        "lib/net6.0/Microsoft.Extensions.Logging.dll",
-        "lib/net6.0/Microsoft.Extensions.Logging.xml",
-        "lib/net7.0/Microsoft.Extensions.Logging.dll",
-        "lib/net7.0/Microsoft.Extensions.Logging.xml",
-        "lib/net8.0/Microsoft.Extensions.Logging.dll",
-        "lib/net8.0/Microsoft.Extensions.Logging.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Logging.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Logging.xml",
-        "lib/netstandard2.1/Microsoft.Extensions.Logging.dll",
-        "lib/netstandard2.1/Microsoft.Extensions.Logging.xml",
-        "microsoft.extensions.logging.8.0.0.nupkg.sha512",
-        "microsoft.extensions.logging.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -6132,12 +6079,11 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "AWSSDK.DynamoDBv2 >= 3.7.400.13",
+      "AWSSDK.DynamoDBv2 >= 3.7.400.16",
       "Blazorise >= 1.6.0",
       "Blazorise.AntDesign >= 1.6.0",
       "Blazorise.Icons.FontAwesome >= 1.6.0",
       "DotNetEnv >= 3.1.0",
-      "Microsoft.Extensions.Logging >= 8.0.0",
       "System.Net.Http.Json >= 8.0.0",
       "bootstrap >= 5.3.3"
     ]
@@ -6189,7 +6135,7 @@
         "dependencies": {
           "AWSSDK.DynamoDBv2": {
             "target": "Package",
-            "version": "[3.7.400.13, )"
+            "version": "[3.7.400.16, )"
           },
           "Blazorise": {
             "target": "Package",
@@ -6206,10 +6152,6 @@
           "DotNetEnv": {
             "target": "Package",
             "version": "[3.1.0, )"
-          },
-          "Microsoft.Extensions.Logging": {
-            "target": "Package",
-            "version": "[8.0.0, )"
           },
           "System.Net.Http.Json": {
             "target": "Package",
