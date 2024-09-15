@@ -2,6 +2,34 @@ data "aws_ssm_parameter" "ecs_node_ami" {
   name = "/aws/service/ecs/optimized-ami/amazon-linux-2/recommended/image_id"
 }
 
+resource "aws_iam_role" "ec2_arn" {
+  name = "AmazonEC2ContainerServiceforEC2Role"
+
+  assume_role_policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Action": "sts:AssumeRole",
+        "Effect": "Allow",
+        "Principal": {
+          "Service": "ec2.amazonaws.com"
+        }
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
+  role       = aws_iam_role.ec2_arn.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
+}
+
+# Create an instance profile
+resource "aws_iam_instance_profile" "ecs_instance_profile" {
+  name = "ecsInstanceProfile"
+  role = aws_iam_role.ec2_arn.name
+}
+
 resource "aws_launch_template" "ecs_lt" {
   name_prefix   = "ecs-template"
   image_id      = data.aws_ssm_parameter.ecs_node_ami.value
@@ -10,7 +38,7 @@ resource "aws_launch_template" "ecs_lt" {
   vpc_security_group_ids = [aws_security_group.security_group.id]
 
   iam_instance_profile {
-    arn = var.iam_instance_arn
+    arn = aws_iam_instance_profile.ecs_instance_profile.arn
   }
 
   block_device_mappings {

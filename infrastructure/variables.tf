@@ -28,23 +28,8 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/16"
 }
 
-variable "ecs_role_arn" {
-  description = "ARN for ECS Cluster. (Minimun ecsTaskExecutionRole)"
-  type        = string
-}
-
-variable "iam_instance_arn" {
-  description = "ARN for EC2 Template. (AmazonEC2ContainerServiceforEC2Role)"
-  type        = string
-}
-
 variable "docker_repository" {
   description = "Name for ECR"
   type        = string
   default     = "terraform-docker-repo"
-}
-
-variable "book_api_arn" {
-  description = "Arn for google books api key"
-  type        = string
 }
