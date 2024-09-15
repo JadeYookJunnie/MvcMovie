@@ -11,7 +11,6 @@ resource "aws_ecs_cluster" "betterreads_cluster" {
 resource "aws_ecs_task_definition" "ecs_task_definition" {
   family             = "my-ecs-task"
   network_mode       = "awsvpc"
-  execution_role_arn = var.ecs_role_arn
   cpu                = 256
   runtime_platform {
     operating_system_family = "LINUX"
