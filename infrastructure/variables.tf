@@ -33,3 +33,9 @@ variable "docker_repository" {
   type        = string
   default     = "terraform-docker-repo"
 }
+
+variable "debug" {
+  description = "Enables creation of debug objects (Such as VPC Endpoint)"
+  type        = bool
+  default     = false
+}

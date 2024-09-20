@@ -1,9 +1,10 @@
+# Application Load Balancer
 resource "aws_lb" "ecs_alb" {
   name                       = "ecs-alb"
   internal                   = false
   load_balancer_type         = "application"
-  security_groups            = [aws_security_group.security_group.id]
-  subnets                    = [aws_subnet.subnet.id, aws_subnet.subnet2.id]
+  security_groups            = [aws_security_group.elb_security_group.id]
+  subnets                    = [aws_subnet.public-subnet-1.id, aws_subnet.public-subnet-2.id]
   enable_deletion_protection = false
 
   tags = {
@@ -11,10 +12,12 @@ resource "aws_lb" "ecs_alb" {
   }
 }
 
+# Load Balancer Listener
 resource "aws_lb_listener" "ecs_alb_listener" {
   load_balancer_arn = aws_lb.ecs_alb.arn
   port              = 80
   protocol          = "HTTP"
+  depends_on        = [aws_lb_target_group.ecs_tg]
 
   default_action {
     type             = "forward"
@@ -22,6 +25,7 @@ resource "aws_lb_listener" "ecs_alb_listener" {
   }
 }
 
+# ECS Target Group
 resource "aws_lb_target_group" "ecs_tg" {
   name        = "ecs-target-group"
   port        = 80
@@ -30,7 +34,12 @@ resource "aws_lb_target_group" "ecs_tg" {
   vpc_id      = aws_vpc.main.id
 
   health_check {
-    path = "/"
-    port = 8080
+    path                = "/"
+    port                = "traffic-port"
+    healthy_threshold   = 5
+    unhealthy_threshold = 2
+    timeout             = 2
+    interval            = 60
+    matcher             = "200"
   }
 }
