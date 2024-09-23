@@ -84,7 +84,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
       "environment" = [
         {
           name  = "BOOK_API",
-          value = data.aws_secretsmanager_secret_version.book_secret_version.secret_string
+          value = jsondecode(data.aws_secretsmanager_secret_version.book_secret_version.secret_string)["BOOK_API"]
         }
       ]
 
