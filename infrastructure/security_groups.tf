@@ -11,6 +11,13 @@ resource "aws_security_group" "ec2_security_group" {
   }
 
   ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -46,20 +53,20 @@ resource "aws_security_group" "elb_security_group" {
   }
 }
 
-resource "aws_ec2_instance_connect_endpoint" "ec2_connect_endpoint_1" {
-  count = var.debug ? 1 : 0
-  subnet_id = aws_subnet.private-subnet-1.id
-  security_group_ids = [ aws_security_group.ec2_security_group.id ]
-  tags = {
-    Name = "subnet-1-endpoint"
-  }
-}
+# resource "aws_ec2_instance_connect_endpoint" "ec2_connect_endpoint_1" {
+#   count = var.debug ? 1 : 0
+#   subnet_id = aws_subnet.private-subnet-1.id
+#   security_group_ids = [ aws_security_group.ec2_security_group.id ]
+#   tags = {
+#     Name = "subnet-1-endpoint"
+#   }
+# }
 
-resource "aws_ec2_instance_connect_endpoint" "ec2_connect_endpoint_2" {
-  count = var.debug ? 1 : 0
-  subnet_id = aws_subnet.private-subnet-2.id
-  security_group_ids = [ aws_security_group.ec2_security_group.id ]
-  tags = {
-    Name = "subnet-2-endpoint"
-  }
-}
+# resource "aws_ec2_instance_connect_endpoint" "ec2_connect_endpoint_2" {
+#   count = var.debug ? 1 : 0
+#   subnet_id = aws_subnet.private-subnet-2.id
+#   security_group_ids = [ aws_security_group.ec2_security_group.id ]
+#   tags = {
+#     Name = "subnet-2-endpoint"
+#   }
+# }

@@ -27,9 +27,17 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
 }
 
 # Attach Instance Connect Role
-resource "aws_iam_role_policy_attachment" "ec2_instance_connect" {
+# resource "aws_iam_role_policy_attachment" "ec2_instance_connect" {
+#   count = var.debug ? 1 : 0
+#   role       = aws_iam_role.ec2_arn.name
+#   policy_arn = "arn:aws:iam::aws:policy/EC2InstanceConnect"
+# }
+
+# Attach Session Manager Role
+resource "aws_iam_role_policy_attachment" "ec2_session_manager_role" {
+  count = var.debug ? 1 : 0
   role       = aws_iam_role.ec2_arn.name
-  policy_arn = "arn:aws:iam::aws:policy/EC2InstanceConnect"
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
 # Create an instance profile

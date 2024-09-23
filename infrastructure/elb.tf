@@ -6,6 +6,7 @@ resource "aws_lb" "ecs_alb" {
   security_groups            = [aws_security_group.elb_security_group.id]
   subnets                    = [aws_subnet.public-subnet-1.id, aws_subnet.public-subnet-2.id]
   enable_deletion_protection = false
+  idle_timeout = 30
 
   tags = {
     Name = "ecs-alb"
