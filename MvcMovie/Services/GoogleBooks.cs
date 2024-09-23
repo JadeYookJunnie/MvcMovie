@@ -44,7 +44,9 @@ namespace MvcMovie.Services
     while (true)
     {
         var url = $"https://www.googleapis.com/books/v1/volumes?q={encodedQuery}&key={_apiKey}&startIndex={startIndex}&maxResults={maxResults}";
+        Console.WriteLine("Sent Request");
         var response = await _httpClient.GetAsync(url);
+        Console.WriteLine("received response");
 
         if (!response.IsSuccessStatusCode)
         {
