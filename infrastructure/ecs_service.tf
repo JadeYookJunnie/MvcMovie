@@ -1,3 +1,4 @@
+# ECS Service
 resource "aws_ecs_service" "ecs_service" {
   name            = "my-ecs-service"
   cluster         = aws_ecs_cluster.betterreads_cluster.id
@@ -5,8 +6,8 @@ resource "aws_ecs_service" "ecs_service" {
   desired_count   = 2
 
   network_configuration {
-    subnets         = [aws_subnet.subnet.id, aws_subnet.subnet2.id]
-    security_groups = [aws_security_group.security_group.id]
+    subnets         = [aws_subnet.public-subnet-1.id, aws_subnet.public-subnet-2.id]
+    security_groups = [aws_security_group.ec2_security_group.id]
   }
 
   force_new_deployment = true

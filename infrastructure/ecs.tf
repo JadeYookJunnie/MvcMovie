@@ -1,26 +1,26 @@
-# Get latest image in provided ECR
+# Latest ECR Image
 data "aws_ecr_image" "service_image" {
   repository_name = var.docker_repository
   most_recent     = true
 }
 
-# Create Cluster
+# ECS Cluster
 resource "aws_ecs_cluster" "betterreads_cluster" {
   name = "betterreads-cluster"
 }
 
-# Create an IAM role for the ECS task execution
+# IAM role for the ECS task execution
 resource "aws_iam_role" "ecs_task_execution_role" {
   name = "ecsTaskExecutionRole"
 
   assume_role_policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [
+    "Version" : "2012-10-17",
+    "Statement" : [
       {
-        "Action": "sts:AssumeRole",
-        "Effect": "Allow",
-        "Principal": {
-          "Service": "ecs-tasks.amazonaws.com"
+        "Action" : "sts:AssumeRole",
+        "Effect" : "Allow",
+        "Principal" : {
+          "Service" : "ecs-tasks.amazonaws.com"
         }
       }
     ]
@@ -35,18 +35,18 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_policy" {
 
 # Grant permission to access Secrets Manager
 resource "aws_iam_role_policy" "ecs_secrets_policy" {
-  name   = "ecsSecretsPolicy"
-  role   = aws_iam_role.ecs_task_execution_role.id
+  name = "ecsSecretsPolicy"
+  role = aws_iam_role.ecs_task_execution_role.id
 
   policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [
+    "Version" : "2012-10-17",
+    "Statement" : [
       {
-        "Effect": "Allow",
-        "Action": [
+        "Effect" : "Allow",
+        "Action" : [
           "secretsmanager:GetSecretValue"
         ],
-        "Resource": "*"
+        "Resource" : "*"
       }
     ]
   })
@@ -61,6 +61,7 @@ data "aws_secretsmanager_secret_version" "book_secret_version" {
   secret_id = data.aws_secretsmanager_secret.book_api_secret.id
 }
 
+# ECS Task
 resource "aws_ecs_task_definition" "ecs_task_definition" {
   family             = "my-ecs-task"
   network_mode       = "awsvpc"
@@ -82,7 +83,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
       # Environment Variables
       "environment" = [
         {
-          name      = "BOOK_API",
+          name  = "BOOK_API",
           value = data.aws_secretsmanager_secret_version.book_secret_version.secret_string
         }
       ]
@@ -98,6 +99,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   ])
 }
 
+# ECS Capacity Provider
 resource "aws_ecs_capacity_provider" "ecs_capacity_provider" {
   name = "betterreads_capacity_provider"
 
@@ -113,6 +115,7 @@ resource "aws_ecs_capacity_provider" "ecs_capacity_provider" {
   }
 }
 
+# ECS Cluster Capacity Provider
 resource "aws_ecs_cluster_capacity_providers" "cluster_cp" {
   cluster_name       = aws_ecs_cluster.betterreads_cluster.name
   capacity_providers = [aws_ecs_capacity_provider.ecs_capacity_provider.name]
