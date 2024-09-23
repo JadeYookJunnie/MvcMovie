@@ -10,6 +10,8 @@
 
 @{
     ViewBag.Title = "MyUser";
+    // user.currentReads is a List<string> of the unique ids for the book
+    // need to then use the books api to create a BookModel for each book
     var currentReadsModel = new ViewBooksRowModel(
         "Current Reads",
         Model.CurrentReads.ToList() // Ensure it's a List<BookModel>

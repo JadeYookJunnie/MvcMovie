@@ -37,6 +37,10 @@ namespace MvcMovie.Controllers
         }
     public IActionResult MyUser()
     {
+        // need to be able to pass in the username of the logged in user
+
+        // constructor of user model gets the data and populates into the fields
+        // this means rest of code is not needed
         var user = new MyUserModel("Thorfinn Karlsefni", "password");
 
         var books = new List<BookModel>{
