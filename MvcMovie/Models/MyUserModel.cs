@@ -4,16 +4,20 @@
     {
         public string Name {get; set;}
         public string Password { get; set; }
+        public string Email {get; set;}
+        public string Username{ get; set; }
         public List<BookModel> Favourites { get; set; } = new List<BookModel>(); 
         public List<BookModel> Wishlist { get; set; } = new List<BookModel>(); 
         public List<UserModel> Friendlist { get; set; } = new List<UserModel>(); 
 
         public List<ReviewModel> ReviewList { get; set; } = new List<ReviewModel>();
 
-    public MyUserModel(string name, string password)
+    public MyUserModel(string name, string email, string username,string password)
         {
             Name = name;
             Password = password; 
+            Email = email;
+            Username= username;
             CurrentReads = new List<BookModel>(); 
             Favorites = new List<BookModel>();    
         }
