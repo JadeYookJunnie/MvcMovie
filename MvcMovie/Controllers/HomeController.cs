@@ -35,13 +35,13 @@ namespace MvcMovie.Controllers
                 return View(books);
     
         }
-    public IActionResult MyUser()
+    public async Task<IActionResult> MyUser()
     {
         // need to be able to pass in the username of the logged in user
 
         // constructor of user model gets the data and populates into the fields
         var user = new MyUserModel("abbie");
-        user.IdsToBookModel(_googleBooksService);
+        await user.IdsToBookModel(_googleBooksService);
         Console.WriteLine("Current reads: " + user.CurrentReads);
 
         return View(user);

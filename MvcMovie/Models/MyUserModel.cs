@@ -104,7 +104,7 @@ namespace MvcMovie.Models
         }
 
         // Turns the List<String> of book ISBNs to List<BookModel> to be displayed
-        public async void IdsToBookModel(GoogleBooksService booksService){
+        public async Task IdsToBookModel(GoogleBooksService booksService){
 
             StrCurrentReads = ["9780226062181", "9781922459541"];
             foreach (string bookId in StrCurrentReads){
@@ -114,6 +114,7 @@ namespace MvcMovie.Models
                 var books = await booksService.SearchAllBooksAsync(query);
 
                 CurrentReads.Add(books[0]);
+                
             }
 
             // repeat the foreach for favourites
