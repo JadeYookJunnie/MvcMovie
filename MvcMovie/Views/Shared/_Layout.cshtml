@@ -39,7 +39,23 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
-
+                            <li class="nav-item">
+                               @if (ViewData["Title"] == "BrowseArea")
+                                {
+                                    <p>
+                                        <a class="navbar-brand btn btn-success text-light"  style="font-size: small;"asp-area="" asp-controller="Home" asp-action="BrowseArea">
+                                            Browse Area
+                                        </a>
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p>
+                                        <a class="navbar-brand link-underline-secondary btn btn-outline-secondary" style="font-size: small;" asp-area="" asp-controller="Home" asp-action="BrowseArea">
+                                            Browse Area
+                                        </a>
+                                    </p>
+                                }
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Logout">
                                     <i class="fa fa-arrow-right-from-bracket"></i> 
