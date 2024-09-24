@@ -31,10 +31,10 @@ namespace MvcMovie.Models
             dbClient = dynamoDBConnect();
 
             // populates the local lists with data from db
-            GetData(name);
+            //GetData(name);
 
             CurrentReads = new List<BookModel>(); 
-            Favorites = new List<BookModel>();   
+            Favourites = new List<BookModel>();   
             Wishlist = new List<BookModel>();
 
             StrFriends = new List<string>();
@@ -111,8 +111,8 @@ namespace MvcMovie.Models
 
         // Turns the List<String> of book ISBNs to List<BookModel> to be displayed
         public async Task IdsToBookModel(GoogleBooksService booksService){
-            Console.WriteLine(StrCurrentReads);
-            //StrCurrentReads = ["9780226062181", "9781922459541"];
+            Console.WriteLine(StrCurrentReads.Count);
+            // StrCurrentReads = ["9780226062181", "9781922459541"];
             foreach (string bookId in StrCurrentReads){
                 // https://stackoverflow.com/questions/7908954/google-books-api-searching-by-isbn
                 // https://www.googleapis.com/books/v1/volumes?q=isbn:<your_isbn_here>
@@ -120,33 +120,26 @@ namespace MvcMovie.Models
                 var books = await booksService.SearchAllBooksAsync(query);
 
                 CurrentReads.Add(books[0]);
-                
             }
 
             // repeat the foreach for favourites
-            //StrCurrentReads = ["9780226062181", "9781922459541"];
+            // StrFavourites = ["9780226062181", "9781922459541"];
             foreach (string bookId in StrFavourites)
             {
-                // https://stackoverflow.com/questions/7908954/google-books-api-searching-by-isbn
-                // https://www.googleapis.com/books/v1/volumes?q=isbn:<your_isbn_here>
                 string query = "isbn:" + bookId;
                 var books = await booksService.SearchAllBooksAsync(query);
 
-                Favorites.Add(books[0]);
-
+                Favourites.Add(books[0]);
             }
 
             // repeat the foreach for wishlist
-            StrCurrentReads = ["9780226062181", "9781922459541"];
+            // StrWishlist = ["9780226062181", "9781922459541"];
             foreach (string bookId in StrWishlist)
             {
-                // https://stackoverflow.com/questions/7908954/google-books-api-searching-by-isbn
-                // https://www.googleapis.com/books/v1/volumes?q=isbn:<your_isbn_here>
                 string query = "isbn:" + bookId;
                 var books = await booksService.SearchAllBooksAsync(query);
 
                 Wishlist.Add(books[0]);
-
             }
 
             // note: not here but will probably have to turn StrReviews into the ReviewModel
