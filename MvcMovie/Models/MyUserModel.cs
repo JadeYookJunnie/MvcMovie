@@ -33,8 +33,9 @@ namespace MvcMovie.Models
             // populates the local lists with data from db
             GetData(name);
 
-            // CurrentReads = new List<BookModel>(); 
-            // Favorites = new List<BookModel>();   
+            CurrentReads = new List<BookModel>(); 
+            Favorites = new List<BookModel>();   
+            Wishlist = new List<BookModel>();
 
             StrFriends = new List<string>();
             StrWishlist = new List<string>();
@@ -102,15 +103,17 @@ namespace MvcMovie.Models
             return true;
         }
 
+        // Turns the List<String> of book ISBNs to List<BookModel> to be displayed
         public async void IdsToBookModel(GoogleBooksService booksService){
-            // here the string lists need to be turned into the BookModel lists
-            // so that it can be used in MyUser.cshtml
 
+            StrCurrentReads = ["9780226062181", "9781922459541"];
             foreach (string bookId in StrCurrentReads){
-                string query = "";
+                // https://stackoverflow.com/questions/7908954/google-books-api-searching-by-isbn
+                // https://www.googleapis.com/books/v1/volumes?q=isbn:<your_isbn_here>
+                string query = "isbn:" + bookId;
                 var books = await booksService.SearchAllBooksAsync(query);
-                // somehow here then books is used to create a BookModel for the book
-                // this BookModel then gets added to List<BookModel> CurrentReads
+
+                CurrentReads.Add(books[0]);
             }
 
             // repeat the foreach for favourites

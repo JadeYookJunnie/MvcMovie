@@ -41,6 +41,8 @@ namespace MvcMovie.Controllers
 
         // constructor of user model gets the data and populates into the fields
         var user = new MyUserModel("abbie");
+        user.IdsToBookModel(_googleBooksService);
+        Console.WriteLine("Current reads: " + user.CurrentReads);
 
         return View(user);
     }

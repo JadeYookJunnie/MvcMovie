@@ -10,14 +10,13 @@
 
 @{
     ViewBag.Title = "MyUser";
-    // user.currentReads is a List<string> of the unique ids for the book
-    // need to then use the books api to create a BookModel for each book
+
     var currentReadsModel = new ViewBooksRowModel(
         "Current Reads",
         Model.CurrentReads.ToList() // Ensure it's a List<BookModel>
     );
 
-    var favouritesModel = new ViewBooksRowModel(
+    @* var favouritesModel = new ViewBooksRowModel(
         "Favourites",
         Model.Favourites.ToList() // Ensure it's a List<BookModel>
     );
@@ -25,7 +24,7 @@
     var wishList= new ViewBooksRowModel(
         "Wishlist",
         Model.Wishlist.ToList() // Ensure it's a List<BookModel>
-    );
+    ); *@
 @* 
     var reviewsList =  *@
 }
@@ -91,12 +90,12 @@
                 <div class="tab-pane container fade show active" id="CurrentReads">
                     @await Html.PartialAsync("_BookList", currentReadsModel)
                 </div>
-                <div class="tab-pane container fade" id="Favourites">
+                @* <div class="tab-pane container fade" id="Favourites">
                     @await Html.PartialAsync("_BookList", favouritesModel)
                 </div>
                 <div class="tab-pane container fade" id="WishList">
                     @await Html.PartialAsync("_BookList", wishList)
-                </div>
+                </div> *@
             </div>
         </div>
 
