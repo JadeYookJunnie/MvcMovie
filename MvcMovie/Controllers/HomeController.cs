@@ -25,6 +25,7 @@ namespace MvcMovie.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
         public async Task<IActionResult> BrowseArea(string query)

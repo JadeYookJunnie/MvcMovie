@@ -12,84 +12,47 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    @if (ViewBag.ShowHeader != null && (bool)ViewBag.ShowHeader)
-    {
+   @if (ViewBag.ShowHeader != null && (bool)ViewBag.ShowHeader)
+{
     <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container-fluid">
-            @if (ViewData["Title"] == "Home")
-            {
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Better Reads</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item ms-auto">
-                            <a class="nav-link text-dark mr-2" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
-                        </li>
-                    </ul>
-                </div>
-            }
-            else
-            {
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="MyUser">Better Reads</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item ms-auto">
-                            <button class="btn" data-bs-toggle="modal" data-bs-target="#UserProfile">
-                                <i class="fa-regular fa-user"></i>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-                <div class="modal fade" id="UserProfile" tabindex="-1" aria-labelledby="UserProfile" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="UserProfile">User Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body p-4">
-                                <form class="d-flex row gap-2">
-                                    <small id="emailHelp" class="form-text text-muted">These data are utilised for athentication purposes.</small>
-                                    <div class="form-group">
-                                        <label for="emailInput">Email address</label>
-                                        <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" value="@ViewBag.CurrentUser.Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="userNameInput">Username</label>
-                                        <input type="input" class="form-control" id="userNameInput" value="@ViewBag.CurrentUser.Username">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nameInput">Name</label>
-                                        <input type="input" class="form-control" id="nameInput"  value="@ViewBag.CurrentUser.Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="passWordInput">Password</label>
-                                        <input type="password" class="form-control" id="passWordInput"  value="@ViewBag.CurrentUser.Password">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
-                            </div>
-                            <div class="modal-footer pad">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                @if (ViewData["Title"] == "Home")
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Better Reads</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-            }
-        </div>
-    </nav>
-</header>
+                }
+                else
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="MyUser">Better Reads</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
 
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Logout">
+                                    <i class="fa fa-arrow-right-from-bracket"></i> 
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
+        </nav>
+    </header>
+}
 
-    }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
