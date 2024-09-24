@@ -16,15 +16,16 @@
         Model.CurrentReads.ToList() // Ensure it's a List<BookModel>
     );
 
-    @* var favouritesModel = new ViewBooksRowModel(
+    var favouritesModel = new ViewBooksRowModel(
         "Favourites",
-        Model.Favourites.ToList() // Ensure it's a List<BookModel>
+        Model.Favourites.ToList() //Ensure it's a List<BookModel>
     );
 
     var wishList= new ViewBooksRowModel(
         "Wishlist",
-        Model.Wishlist.ToList() // Ensure it's a List<BookModel>
-    ); *@
+        Model.Wishlist.ToList() //Ensure it's a List<BookModel>
+    ); 
+
 @* 
     var reviewsList =  *@
 }
@@ -90,12 +91,12 @@
                 <div class="tab-pane container fade show active" id="CurrentReads">
                     @await Html.PartialAsync("_BookList", currentReadsModel)
                 </div>
-                @* <div class="tab-pane container fade" id="Favourites">
+                <div class="tab-pane container fade" id="Favourites">
                     @await Html.PartialAsync("_BookList", favouritesModel)
                 </div>
                 <div class="tab-pane container fade" id="WishList">
                     @await Html.PartialAsync("_BookList", wishList)
-                </div> *@
+                </div>
             </div>
         </div>
 

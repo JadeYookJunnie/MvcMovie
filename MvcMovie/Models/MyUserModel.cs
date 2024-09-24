@@ -44,6 +44,12 @@ namespace MvcMovie.Models
             StrBooksReviewed = new List<string>();
         }
 
+        //ignore for now
+        public async Task GetDataAsync(string name)
+        {
+            await GetData(name);
+        }
+
         public AmazonDynamoDBClient dynamoDBConnect(){
             string accessKey = Environment.GetEnvironmentVariable("DB_ACCESS_KEY");
             string secretKey = Environment.GetEnvironmentVariable("DB_SECRET_ACCESS_KEY");
@@ -105,8 +111,8 @@ namespace MvcMovie.Models
 
         // Turns the List<String> of book ISBNs to List<BookModel> to be displayed
         public async Task IdsToBookModel(GoogleBooksService booksService){
-
-            StrCurrentReads = ["9780226062181", "9781922459541"];
+            Console.WriteLine(StrCurrentReads);
+            //StrCurrentReads = ["9780226062181", "9781922459541"];
             foreach (string bookId in StrCurrentReads){
                 // https://stackoverflow.com/questions/7908954/google-books-api-searching-by-isbn
                 // https://www.googleapis.com/books/v1/volumes?q=isbn:<your_isbn_here>
@@ -118,8 +124,30 @@ namespace MvcMovie.Models
             }
 
             // repeat the foreach for favourites
+            //StrCurrentReads = ["9780226062181", "9781922459541"];
+            foreach (string bookId in StrFavourites)
+            {
+                // https://stackoverflow.com/questions/7908954/google-books-api-searching-by-isbn
+                // https://www.googleapis.com/books/v1/volumes?q=isbn:<your_isbn_here>
+                string query = "isbn:" + bookId;
+                var books = await booksService.SearchAllBooksAsync(query);
+
+                Favorites.Add(books[0]);
+
+            }
 
             // repeat the foreach for wishlist
+            StrCurrentReads = ["9780226062181", "9781922459541"];
+            foreach (string bookId in StrWishlist)
+            {
+                // https://stackoverflow.com/questions/7908954/google-books-api-searching-by-isbn
+                // https://www.googleapis.com/books/v1/volumes?q=isbn:<your_isbn_here>
+                string query = "isbn:" + bookId;
+                var books = await booksService.SearchAllBooksAsync(query);
+
+                Wishlist.Add(books[0]);
+
+            }
 
             // note: not here but will probably have to turn StrReviews into the ReviewModel
         }   
