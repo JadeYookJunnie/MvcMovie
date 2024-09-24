@@ -25,6 +25,7 @@ namespace MvcMovie.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
         public async Task<IActionResult> BrowseArea(string query)
@@ -37,7 +38,8 @@ namespace MvcMovie.Controllers
         }
     public IActionResult MyUser()
     {
-        var user = new MyUserModel("Thorfinn Karlsefni", "password");
+        var user = new MyUserModel("Thorfinn Karlsefni", "thor@thor.com", "thor", "password");
+
 
         var books = new List<BookModel>{
             new BookModel("123456", "To Kill a Mockingbird", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Harper Lee", 5, new DateTime(1960, 7, 11)),
@@ -88,7 +90,7 @@ namespace MvcMovie.Controllers
                 book.addReview(review);
             }
         }
-
+        ViewBag.CurrentUser = user;
         return View(user);
     }
         
