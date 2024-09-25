@@ -34,9 +34,9 @@ namespace MvcMovie.Models
             //GetData(name);
             
             Name = name;
-            Password = password; 
-            Email = email;
-            Username= username;
+            //Password = password; 
+            //Email = email;
+            //Username= username;
 
             CurrentReads = new List<BookModel>(); 
             Favourites = new List<BookModel>();   
