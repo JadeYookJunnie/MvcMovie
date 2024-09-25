@@ -58,7 +58,7 @@
                             <div class="d-flex flex-wrap gap-2">
                                 @if(Model.Genre != null && Model.Genre.Any()){
                                     foreach(var genre in Model.Genre){
-                                        <span class="badge bg-green-600">@genre</span>
+                                        <span class="badge bg-sucess">@genre</span>
                                     }
                                 }
                             </div>
@@ -83,10 +83,10 @@
 
                 <!-----------------------------REVIEW AREA---------------------------------------------->
                 <div>
-                    <div class="sticky-top bg-light-subtle py-2 shadow-sm bg-light">  <!--Review tab-->
+                    <div class="sticky-top bg-light-subtle py-2 shadow-sm bg-bg-emerald-100">  <!--Review tab-->
                     <div class="d-flex justify-content-between m-4"> 
                         <p><strong>Reviews:</strong></p>
-                        <button class="btn btn-primary stick" type="button" onclick="toggleReviewInput('@safeId')">Add Review</button>
+                        <button class="btn btn-success stick" type="button" onclick="toggleReviewInput('@safeId')">Add Review</button>
                     </div>
 
                     <div id="reviewInput-@safeId" class="m-4" style="display: none;">     
@@ -134,13 +134,13 @@
                                                 </span>
 
                                             </div>
-                                            <span class="badge bg-primary">@review.Date.ToString("MMMM dd, yyyy")</span>
+                                            <span class="badge bg-success">@review.Date.ToString("MMMM dd, yyyy")</span>
                                         </div>
                                         <p>@review.Review</p>
 
                                         <div class="d-flex justify-content-end gap-4">
                                             <button class="btn  p-0 d-flex align-items-center gap-1" onclick="likeReview(@review.Id)">
-                                                <i class="fa-solid fa-thumbs-up" style="font-size: 16px; color: var(--bs-primary);"></i>
+                                                <i class="fa-solid fa-thumbs-up" style="font-size: 16px; color: var(--bs-success);"></i>
                                                 <span id="like-count-@review.Id">@review.LikeCount</span>
                                             </button>
                                         </div>

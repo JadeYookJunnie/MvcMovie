@@ -3,12 +3,13 @@ resource "aws_ecs_service" "ecs_service" {
   name            = "my-ecs-service"
   cluster         = aws_ecs_cluster.betterreads_cluster.id
   task_definition = aws_ecs_task_definition.ecs_task_definition.arn
-  desired_count   = 2
+  # launch_type = "EC2"
+  desired_count   = 1
 
-  network_configuration {
-    subnets         = [aws_subnet.public-subnet-1.id, aws_subnet.public-subnet-2.id]
-    security_groups = [aws_security_group.ec2_security_group.id]
-  }
+  # network_configuration {
+  #   subnets         = [aws_subnet.public-subnet-1.id, aws_subnet.public-subnet-2.id]
+  #   security_groups = [aws_security_group.ec2_security_group.id]
+  # }
 
   force_new_deployment = true
   placement_constraints {

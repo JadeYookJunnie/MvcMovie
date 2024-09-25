@@ -25,6 +25,7 @@ namespace MvcMovie.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
         public async Task<IActionResult> BrowseArea(string query)
@@ -37,6 +38,7 @@ namespace MvcMovie.Controllers
         }
     public async Task<IActionResult> MyUser()
     {
+
         // need to be able to pass in the username of the logged in user
         string username = "abbie";
 
@@ -47,6 +49,7 @@ namespace MvcMovie.Controllers
         
         // Console.WriteLine("Current reads: " + user.CurrentReads.Count);
         // Console.WriteLine("Favourties: " + user.Favourites.Count);
+
 
         return View(user);
     }

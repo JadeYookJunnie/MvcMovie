@@ -6,6 +6,7 @@
 @{
     ViewData["Title"] = "MyUser";
     ViewBag.ShowHeader = true;
+
 }
 
 @{
@@ -38,8 +39,10 @@
     <div class="sticky-top bg-white">
         <div class="d-flex justify-content-between align-items-start mh-25 p-2">
             <div id="userDetails" class="mh-25">
+
                 <p class="fs-3 mb-0">@Model.Name</p> <!-- Large name -->
                 <p class="fs-6 mb-0">@Model.Name</p> <!-- Small name to align with stats -->
+
             </div>
 
             <div id="bookStats" class="d-flex justify-content-center align-items-start mt-4">
@@ -65,15 +68,13 @@
                 <a class="nav-link" data-bs-toggle="tab" href="#Reviews">Reviews</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#Friends">Friends</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#UserDetails">User details</a>
             </li>
         </ul>
     </div>  
 
-    <!-- Tab content container with scrollable book section -->
     <div class="tab-content scrollable-content" style="height: vh; overflow-y: auto;">
         <div class="tab-pane container fade show active" id="Booklist">
-            <!-- Sticky inner tabs for "Current Reads", "Favourites", "Wishlist" -->
             <ul class="nav nav-pills py-4">
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#CurrentReads">Current Reads</a>
@@ -86,7 +87,6 @@
                 </li>
             </ul>
             
-            <!-- Scrollable content area for the books -->
             <div class="tab-content scrollable-content" style="height: 55vh; overflow-y: auto;">
                 <div class="tab-pane container fade show active" id="CurrentReads">
                     @await Html.PartialAsync("_BookList", currentReadsModel)
@@ -104,8 +104,83 @@
         <div class="tab-pane container fade" id="Reviews">
             <!-- Reviews content -->
         </div>
-        <div class="tab-pane container fade" id="Friends">
-            <!-- Friends content -->
+        <div class="tab-pane container fade" id="UserDetails">
+            <div class="d-flex flex-column p-4">
+                <small id="emailHelp" class="form-text text-muted">These data are utilized for authentication purposes.</small>
+
+                @if (ViewBag.CurrentUser != null)
+                {
+                    <form class="form-group d-flex row gap-2" id="userDetailsForm">
+                        <div class="form-group">
+                            <label for="emailInput">Email address</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" value="@ViewBag.CurrentUser.Email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userNameInput">Username</label>
+                            <input type="text" class="form-control" id="userNameInput" value="@ViewBag.CurrentUser.Username" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nameInput">Name</label>
+                            <input type="text" class="form-control" id="nameInput" value="@ViewBag.CurrentUser.Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="passwordInput">Password</label>
+                            <input type="password" class="form-control" id="passwordInput" value="@ViewBag.CurrentUser.Password" required>
+                        </div>
+                    <button type="submit" id="submitButton" class="btn btn-primary py-2">Submit</button>
+                    </form>
+                }
+                else
+                {
+                    <p>User details not available.</p>
+                }
+            </div>
         </div>
-    </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("userDetailsForm");
+    const submitButton = document.getElementById("submitButton");
+    const inputs = form.querySelectorAll("input");
+
+    let originalValues = {}; 
+
+    // Store original values when the page loads (or when userDetails tab becomes active)
+    inputs.forEach(input => {
+        originalValues[input.id] = input.value;
+    });
+
+    // Reset values when user navigates away from the User Details tab
+    const userDetailsTab = document.querySelector('a[href="#UserDetails"]');
+    userDetailsTab.addEventListener('hidden.bs.tab', function () {
+        inputs.forEach(input => {
+            input.value = originalValues[input.id]; 
+            input.style.border = ""; 
+        });
+        submitButton.disabled = true;  // Disable submit button
+    });
+
+    // Validate form and enable/disable submit button
+    function validateForm() {
+        let allValid = true;
+        inputs.forEach(input => {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+                allValid = false;
+            } else {
+                input.style.border = "";  
+            }
+        });
+        submitButton.disabled = !allValid;  // Disable submit button if not all fields are valid
+    }
+
+    // Attach validation function to input events
+    inputs.forEach(input => {
+        input.addEventListener("input", validateForm);
+    });
+});
+</script>

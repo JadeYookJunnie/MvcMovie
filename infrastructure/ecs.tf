@@ -64,7 +64,7 @@ data "aws_secretsmanager_secret_version" "book_secret_version" {
 # ECS Task
 resource "aws_ecs_task_definition" "ecs_task_definition" {
   family             = "my-ecs-task"
-  network_mode       = "awsvpc"
+  network_mode       = "host"
   cpu                = 256
   execution_role_arn = aws_iam_role.ecs_task_execution_role.arn
 
@@ -84,7 +84,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
       "environment" = [
         {
           name  = "BOOK_API",
-          value = data.aws_secretsmanager_secret_version.book_secret_version.secret_string
+          value = jsondecode(data.aws_secretsmanager_secret_version.book_secret_version.secret_string)["BOOK_API"]
         }
       ]
 

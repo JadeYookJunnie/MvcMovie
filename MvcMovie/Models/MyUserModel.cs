@@ -11,11 +11,14 @@ namespace MvcMovie.Models
 
         public string Name {get; set;}
         public string Password { get; set; }
+        public string Email {get; set;}
+        public string Username{ get; set; }
         public List<BookModel> Favourites { get; set; } = new List<BookModel>(); 
         public List<BookModel> Wishlist { get; set; } = new List<BookModel>(); 
         public List<UserModel> Friendlist { get; set; } = new List<UserModel>(); 
 
         public List<ReviewModel> ReviewList { get; set; } = new List<ReviewModel>();
+
 
         // have made these string lists for now so that the data from db can be stored easily
         public static List<string> StrFriends;
@@ -32,6 +35,7 @@ namespace MvcMovie.Models
 
             // populates the local lists with data from db
             //GetData(name);
+
 
             CurrentReads = new List<BookModel>(); 
             Favourites = new List<BookModel>();   
