@@ -16,7 +16,7 @@ namespace MvcMovie.Controllers
          * username: admin
          * password: Adm!n1strator
          */
-
+        public string UserName = "abbie";
         private readonly ILogger<HomeController> _logger;
         private readonly GoogleBooksService _googleBooksService;
         private static List<ReviewModel> _reviews = new List<ReviewModel>(); //CHANGE THIS WHEN APIS ARE IMPLEMENTED
@@ -45,6 +45,7 @@ namespace MvcMovie.Controllers
 
         // need to be able to pass in the username of the logged in user
         string username = "abbie";
+        UserName = username;
 
         // constructor of user model gets the data and populates into the fields
         var user = new MyUserModel(username);
@@ -96,10 +97,10 @@ namespace MvcMovie.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public static async Task<bool> ValidReview(string bookID, string user)
+        public async Task<bool> ValidReview(string bookID, string user)
         {
             string tableName = "BR_Reviews";
-
+            user = UserName;
             DateTime date = DateTime.Today;
             string dateStr = date.Year.ToString() + date.Month.ToString("D2") + date.Day.ToString("D2");
 
@@ -142,13 +143,15 @@ namespace MvcMovie.Controllers
         }
 
         [HttpPost]
-        public static async Task<bool> AddReview(string bookID, string user, int rating, string review)
+        public async Task<IActionResult> AddReview(string bookID, string user, int rating, string review)
         {
+            user = UserName; //overriding because username is not passed to book (yet)
+            Console.Write("adding review");
             // checks that user has not already reviewed the book that day
             bool result = await ValidReview(bookID, user);
             if (!result)
             {
-                return false;
+                return BadRequest(new { Success = false });
             }
 
             string tableName = "BR_Reviews";
@@ -175,7 +178,8 @@ namespace MvcMovie.Controllers
 
             AmazonDynamoDBClient dbClient = dynamoDBConnect();
             var response = await dbClient.PutItemAsync(request);
-            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+            return Ok(new { Success = true });
+            //return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
         }
     }
 

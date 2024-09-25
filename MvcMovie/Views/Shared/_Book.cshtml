@@ -3,6 +3,7 @@
 @{
     var safeId = Model.ISBN.Replace(":", "_").Replace(" ", "_"); // Replace unsafe characters
 }
+<body>
 <div class="toast-container position-fixed top-0 end-0 p-3">
     <!-- Error Toast -->
     <div id="errorToast" class="toast bg-danger text-white" role="alert" aria-live="assertive" aria-atomic="true">
@@ -166,7 +167,10 @@
 </div>
 
 <script>
+        
+
     function toggleReviewInput(safeId) {
+        @* alert("testing"); *@
         var reviewInput = document.getElementById('reviewInput-' + safeId);
         if (reviewInput.style.display === 'none') {
             reviewInput.style.display = 'block';
@@ -190,7 +194,6 @@
     }
 
     document.getElementById('currentReadsButton').addEventListener('click', function() {
-        alert('current');
         toggleButton(this, 'current reads');
     });
 
@@ -229,13 +232,11 @@
     }
     function submitReview(safeId) {
         @* safeId = ISBN *@
-            alert(safeId);
-        const reviewTitle = document.querySelector(`#reviewInput-${safeId} input[aria-label="reviewTilte"]`);
-        const ratingInput = document.querySelector(`#reviewInput-${safeId} input[id="ratingInput-${safeId}"]`);
-        const reviewText = document.querySelector(`#reviewInput-${safeId} textarea`);
-
+        const reviewTitle = document.querySelector(`#reviewInput-${safeId} input[aria-label="reviewTilte"]`).value;
+        const ratingInput = document.querySelector(`#reviewInput-${safeId} input[id="ratingInput-${safeId}"]`).value;
+        const reviewText = document.querySelector(`#reviewInput-${safeId} textarea`).value;
         // Check if all fields are filled
-        if (!reviewTitle.value || !ratingInput.value || !reviewText.value) {
+        if (!reviewTitle || !ratingInput || !reviewText) {
             showErrorToast();
             markFieldsAsInvalid([reviewTitle, ratingInput, reviewText]);
         } else {
@@ -243,14 +244,15 @@
                 url: '/Home/AddReview', // URL to the HomeController's AddReview action
                 type: 'POST',
                 data: {
-                    bookID: safeID,
-                    user: 'user'
+                    bookID: safeId,
+                    user: 'user',
                     rating: ratingInput,
                     review: reviewText
                 },
                 success: function (response) {
                     if (response.success) {
-                        alert('Review added successfully');
+                       showSuccessToast();
+                        
                     } else {
                         alert('Failed to add review');
                     }
@@ -259,7 +261,7 @@
                     alert('Error submitting review');
                 }
             });
-            showSuccessToast();
+
             clearFields([reviewTitle, ratingInput, reviewText]);
         }
     }
@@ -290,3 +292,4 @@
     }
 
 </script>
+</body>
