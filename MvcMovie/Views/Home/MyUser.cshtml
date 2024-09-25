@@ -11,6 +11,7 @@
 
 @{
     ViewBag.Title = "MyUser";
+
     var currentReadsModel = new ViewBooksRowModel(
         "Current Reads",
         Model.CurrentReads.ToList() // Ensure it's a List<BookModel>
@@ -18,13 +19,14 @@
 
     var favouritesModel = new ViewBooksRowModel(
         "Favourites",
-        Model.Favourites.ToList() // Ensure it's a List<BookModel>
+        Model.Favourites.ToList() //Ensure it's a List<BookModel>
     );
 
     var wishList= new ViewBooksRowModel(
         "Wishlist",
-        Model.Wishlist.ToList() // Ensure it's a List<BookModel>
-    );
+        Model.Wishlist.ToList() //Ensure it's a List<BookModel>
+    ); 
+
 @* 
     var reviewsList =  *@
 }
@@ -37,8 +39,9 @@
     <div class="sticky-top bg-white">
         <div class="d-flex justify-content-between align-items-start mh-25 p-2">
             <div id="userDetails" class="mh-25">
-                <p class="fs-3 mb-0">@ViewBag.CurrentUser.Name</p> 
-                <p class="fs-6 mb-0">@ViewBag.CurrentUser.Username</p>
+
+                <p class="fs-3 mb-0">@Model.Name</p> <!-- Large name -->
+                <p class="fs-6 mb-0">@Model.Name</p> <!-- Small name to align with stats -->
 
             </div>
 

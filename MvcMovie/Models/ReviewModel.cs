@@ -5,6 +5,7 @@ namespace MvcMovie.Models
     public class ReviewModel
     {
         public int Id { get; set; }
+        public string ReviewID { get; set; }
         public UserModel User { get; set; }
         public BookModel Book { get; set; }
         public int LikeCount { get; set; }
@@ -12,9 +13,10 @@ namespace MvcMovie.Models
         public string Review { get; set; }
         public DateTime Date { get; set; }
 
-    public ReviewModel(int id, UserModel user, BookModel book, int likeCount, int rating, string review, DateTime date)
+    public ReviewModel(int id, string reviewID, UserModel user, BookModel book, int likeCount, int rating, string review, DateTime date)
         {
             Id = id;
+            ReviewID = reviewID;
             User = user;
             Book = book;
             LikeCount = likeCount;
