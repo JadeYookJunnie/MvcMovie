@@ -180,6 +180,333 @@ namespace MvcMovie.Models
             CurrentReads.Remove(book);
         }
 
+        public static async Task<bool> CreateUser(string username)
+        {
+            // checks that username is not taken 
+            bool result = await UsernameTaken(username);
+            if (result)
+            {
+                return false;
+            }
+
+            string tableName = "BR_User";
+
+            var item = new Dictionary<string, AttributeValue>
+            {
+                ["username"] = new AttributeValue { S = username },
+            };
+
+            var request = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+            };
+
+            var response = await dbClient.PutItemAsync(request);
+            Console.WriteLine(response.HttpStatusCode);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+        public static async Task<bool> UsernameTaken(string username)
+        {
+            string tableName = "BR_User";
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["username"] = new AttributeValue { S = username },
+            };
+
+            var request = new GetItemRequest
+            {
+                Key = key,
+                TableName = tableName,
+            };
+
+            var response = await dbClient.GetItemAsync(request);
+
+            if (response.Item == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static async Task<bool> AddBookToFavourites(string username, string bookID)
+        {
+            // assuming that it is impossible for the username to not exist
+
+            string tableName = "BR_User";
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["username"] = new AttributeValue { S = username },
+            };
+
+            var updates = new Dictionary<string, AttributeValueUpdate>
+            {
+                ["favourites"] = new AttributeValueUpdate
+                {
+                    Action = AttributeAction.ADD,
+                    Value = new AttributeValue { SS = { bookID } },
+                },
+            };
+
+            var request = new UpdateItemRequest
+            {
+                AttributeUpdates = updates,
+                Key = key,
+                TableName = tableName,
+            };
+
+            var response = await dbClient.UpdateItemAsync(request);
+            Console.WriteLine(response);
+
+            Console.WriteLine(response.HttpStatusCode);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+        public static async Task<bool> RemoveBookFromFavourites(string username, string bookID)
+        {
+            // assuming that it is impossible for the username to not exist
+            // assuming that has already been checked that the bookID is in the local favourites list
+
+            string tableName = "BR_User";
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["username"] = new AttributeValue { S = username },
+            };
+
+            var updates = new Dictionary<string, AttributeValueUpdate>
+            {
+                ["favourites"] = new AttributeValueUpdate
+                {
+                    Action = AttributeAction.DELETE,
+                    Value = new AttributeValue { SS = { bookID } },
+                },
+            };
+
+            var request = new UpdateItemRequest
+            {
+                AttributeUpdates = updates,
+                Key = key,
+                TableName = tableName,
+            };
+
+            var response = await dbClient.UpdateItemAsync(request);
+            Console.WriteLine(response);
+
+            Console.WriteLine(response.HttpStatusCode);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+        public static async Task<bool> AddBookToWishlist(string username, string bookID)
+        {
+            // assuming that it is impossible for the username to not exist
+
+            string tableName = "BR_User";
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["username"] = new AttributeValue { S = username },
+            };
+
+            var updates = new Dictionary<string, AttributeValueUpdate>
+            {
+                ["wishlist"] = new AttributeValueUpdate
+                {
+                    Action = AttributeAction.ADD,
+                    Value = new AttributeValue { SS = { bookID } },
+                },
+            };
+
+            var request = new UpdateItemRequest
+            {
+                AttributeUpdates = updates,
+                Key = key,
+                TableName = tableName,
+            };
+
+            var response = await dbClient.UpdateItemAsync(request);
+            Console.WriteLine(response);
+
+            Console.WriteLine(response.HttpStatusCode);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+        public static async Task<bool> AddBookToCurrentReads(string username, string bookID)
+        {
+            // assuming that it is impossible for the username to not exist
+
+            string tableName = "BR_User";
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["username"] = new AttributeValue { S = username },
+            };
+
+            var updates = new Dictionary<string, AttributeValueUpdate>
+            {
+                ["currentreads"] = new AttributeValueUpdate
+                {
+                    Action = AttributeAction.ADD,
+                    Value = new AttributeValue { SS = { bookID } },
+                },
+            };
+
+            var request = new UpdateItemRequest
+            {
+                AttributeUpdates = updates,
+                Key = key,
+                TableName = tableName,
+            };
+
+            var response = await dbClient.UpdateItemAsync(request);
+            Console.WriteLine(response);
+
+            Console.WriteLine(response.HttpStatusCode);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+        public static async Task<bool> AddFriend(string username, string friend_username)
+        {
+            // note - this is implemented as one-way friendship (more like following)
+
+            string tableName = "BR_User";
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["username"] = new AttributeValue { S = username },
+            };
+
+            var updates = new Dictionary<string, AttributeValueUpdate>
+            {
+                ["friends"] = new AttributeValueUpdate
+                {
+                    Action = AttributeAction.ADD,
+                    Value = new AttributeValue { SS = { friend_username } },
+                },
+            };
+
+            var request = new UpdateItemRequest
+            {
+                AttributeUpdates = updates,
+                Key = key,
+                TableName = tableName,
+            };
+
+            var response = await dbClient.UpdateItemAsync(request);
+            Console.WriteLine(response);
+
+            Console.WriteLine(response.HttpStatusCode);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+        public static async Task<bool> RemoveBookFromWishlist(string username, string bookID)
+        {
+            // assuming that it is impossible for the username to not exist
+            // assuming that has already been checked that the bookID is in the local favourites list
+
+            string tableName = "BR_User";
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["username"] = new AttributeValue { S = username },
+            };
+
+            var updates = new Dictionary<string, AttributeValueUpdate>
+            {
+                ["wishlist"] = new AttributeValueUpdate
+                {
+                    Action = AttributeAction.DELETE,
+                    Value = new AttributeValue { SS = { bookID } },
+                },
+            };
+
+            var request = new UpdateItemRequest
+            {
+                AttributeUpdates = updates,
+                Key = key,
+                TableName = tableName,
+            };
+
+            var response = await dbClient.UpdateItemAsync(request);
+            Console.WriteLine(response);
+
+            Console.WriteLine(response.HttpStatusCode);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+        public static async Task<bool> RemoveBookFromCurrentReads(string username, string bookID)
+        {
+            // assuming that it is impossible for the username to not exist
+            // assuming that has already been checked that the bookID is in the local favourites list
+
+            string tableName = "BR_User";
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["username"] = new AttributeValue { S = username },
+            };
+
+            var updates = new Dictionary<string, AttributeValueUpdate>
+            {
+                ["favourites"] = new AttributeValueUpdate
+                {
+                    Action = AttributeAction.DELETE,
+                    Value = new AttributeValue { SS = { bookID } },
+                },
+            };
+
+            var request = new UpdateItemRequest
+            {
+                AttributeUpdates = updates,
+                Key = key,
+                TableName = tableName,
+            };
+
+            var response = await dbClient.UpdateItemAsync(request);
+            Console.WriteLine(response);
+
+            Console.WriteLine(response.HttpStatusCode);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+        public static async Task<bool> RemoveFriend(string username, string friend_username)
+        {
+            // assuming that it is impossible for the username to not exist
+            // assuming that users are already friends
+            // note - friendship is one way
+
+            string tableName = "BR_User";
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["username"] = new AttributeValue { S = username },
+            };
+
+            var updates = new Dictionary<string, AttributeValueUpdate>
+            {
+                ["friends"] = new AttributeValueUpdate
+                {
+                    Action = AttributeAction.DELETE,
+                    Value = new AttributeValue { SS = { friend_username } },
+                },
+            };
+
+            var request = new UpdateItemRequest
+            {
+                AttributeUpdates = updates,
+                Key = key,
+                TableName = tableName,
+            };
+
+            var response = await dbClient.UpdateItemAsync(request);
+            Console.WriteLine(response);
+
+            Console.WriteLine(response.HttpStatusCode);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
 
     }
 }

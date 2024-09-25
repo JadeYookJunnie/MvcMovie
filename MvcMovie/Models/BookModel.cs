@@ -121,5 +121,119 @@ namespace MvcMovie.Models
             BookReviews = reviews;
             return true;
         }
+
+        public static async Task<bool> ValidReview(string bookID, string user)
+        {
+            string tableName = "BR_Reviews";
+
+            DateTime date = DateTime.Today;
+            string dateStr = date.Year.ToString() + date.Month.ToString("D2") + date.Day.ToString("D2");
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["book"] = new AttributeValue { S = bookID },
+                ["reviewID"] = new AttributeValue { S = user + dateStr },
+            };
+
+            var request = new GetItemRequest
+            {
+                Key = key,
+                TableName = tableName,
+            };
+
+            var response = await dbClient.GetItemAsync(request);
+
+            if (response.Item == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static async Task<bool> AddReview(string bookID, string user, int rating, string review)
+        {
+            // checks that user has not already reviewed the book that day
+            bool result = await ValidReview(bookID, user);
+            if (!result)
+            {
+                return false;
+            }
+
+            string tableName = "BR_Reviews";
+
+            DateTime date = DateTime.Today;
+            string dateStr = date.Year.ToString() + date.Month.ToString("D2") + date.Day.ToString("D2");
+
+            var item = new Dictionary<string, AttributeValue>
+            {
+                ["book"] = new AttributeValue { S = bookID },
+                ["reviewID"] = new AttributeValue { S = user + dateStr },
+                ["user"] = new AttributeValue { S = user },
+                ["date"] = new AttributeValue { S = dateStr },
+                ["rating"] = new AttributeValue { N = rating.ToString() },
+                ["review"] = new AttributeValue { S = review },
+                ["likecount"] = new AttributeValue { N = "0" },
+            };
+
+            var request = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+            };
+
+            var response = await dbClient.PutItemAsync(request);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+        public static async Task<bool> DeleteReview(string bookID, string reviewID)
+        {
+            string tableName = "BR_Reviews";
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["book"] = new AttributeValue { S = bookID },
+                ["reviewID"] = new AttributeValue { S = reviewID },
+            };
+
+            var request = new DeleteItemRequest
+            {
+                TableName = tableName,
+                Key = key,
+            };
+
+            var response = await dbClient.DeleteItemAsync(request);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+        public static async Task<bool> LikeReview(string bookID, string reviewID, int currentLikes)
+        {
+            string tableName = "BR_Reviews";
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["book"] = new AttributeValue { S = bookID },
+                ["reviewID"] = new AttributeValue { S = reviewID },
+            };
+
+            var updates = new Dictionary<string, AttributeValueUpdate>
+            {
+                ["likecount"] = new AttributeValueUpdate
+                {
+                    Action = AttributeAction.PUT,
+                    Value = new AttributeValue { N = (currentLikes + 1).ToString() },
+                },
+            };
+
+            var request = new UpdateItemRequest
+            {
+                AttributeUpdates = updates,
+                Key = key,
+                TableName = tableName,
+            };
+
+            var response = await dbClient.UpdateItemAsync(request);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
     }
 }
