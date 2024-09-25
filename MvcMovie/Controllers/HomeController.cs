@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using MvcMovie.Models;
 using System.Diagnostics;
 using MvcMovie.Services;
+using Amazon.DynamoDBv2.Model;
+using Amazon.DynamoDBv2;
+using Amazon;
+using System.Globalization;
 
 namespace MvcMovie.Controllers
 {
@@ -12,7 +16,7 @@ namespace MvcMovie.Controllers
          * username: admin
          * password: Adm!n1strator
          */
-
+        public string UserName = "abbie";
         private readonly ILogger<HomeController> _logger;
         private readonly GoogleBooksService _googleBooksService;
         private static List<ReviewModel> _reviews = new List<ReviewModel>(); //CHANGE THIS WHEN APIS ARE IMPLEMENTED
@@ -40,10 +44,11 @@ namespace MvcMovie.Controllers
     {
         // need to be able to pass in the username of the logged in user
         string username = "abbie";
+        UserName = username;
 
         // constructor of user model gets the data and populates into the fields
         var user = new MyUserModel(username);
-        //await user.GetDataAsync(username);
+        await user.GetDataAsync(username);
         await user.IdsToBookModel(_googleBooksService);
         
         // Console.WriteLine("Current reads: " + user.CurrentReads.Count);
@@ -89,5 +94,92 @@ namespace MvcMovie.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public async Task<bool> ValidReview(string bookID, string user)
+        {
+            string tableName = "BR_Reviews";
+            user = UserName;
+            DateTime date = DateTime.Today;
+            string dateStr = date.Year.ToString() + date.Month.ToString("D2") + date.Day.ToString("D2");
+
+            var key = new Dictionary<string, AttributeValue>
+            {
+                ["book"] = new AttributeValue { S = bookID },
+                ["reviewID"] = new AttributeValue { S = user + dateStr },
+            };
+
+            var request = new GetItemRequest
+            {
+                Key = key,
+                TableName = tableName,
+            };
+
+            AmazonDynamoDBClient dbClient = dynamoDBConnect();
+            var response = await dbClient.GetItemAsync(request);
+
+            if (response.Item == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static AmazonDynamoDBClient dynamoDBConnect()
+        {
+            string accessKey = Environment.GetEnvironmentVariable("DB_ACCESS_KEY");
+            string secretKey = Environment.GetEnvironmentVariable("DB_SECRET_ACCESS_KEY");
+
+            AmazonDynamoDBClient client;
+
+            // create the config item to specify region
+            AmazonDynamoDBConfig clientConfig = new AmazonDynamoDBConfig();
+            clientConfig.RegionEndpoint = RegionEndpoint.USEast1;
+
+            client = new AmazonDynamoDBClient(accessKey, secretKey, clientConfig);
+
+            return client;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddReview(string bookID, string user, int rating, string review)
+        {
+            user = UserName; //overriding because username is not passed to book (yet)
+            Console.Write("adding review");
+            // checks that user has not already reviewed the book that day
+            bool result = await ValidReview(bookID, user);
+            if (!result)
+            {
+                return BadRequest(new { Success = false });
+            }
+
+            string tableName = "BR_Reviews";
+
+            DateTime date = DateTime.Today;
+            string dateStr = date.Year.ToString() + date.Month.ToString("D2") + date.Day.ToString("D2");
+
+            var item = new Dictionary<string, AttributeValue>
+            {
+                ["book"] = new AttributeValue { S = bookID },
+                ["reviewID"] = new AttributeValue { S = user + dateStr },
+                ["user"] = new AttributeValue { S = user },
+                ["date"] = new AttributeValue { S = dateStr },
+                ["rating"] = new AttributeValue { N = rating.ToString() },
+                ["review"] = new AttributeValue { S = review },
+                ["likecount"] = new AttributeValue { N = "0" },
+            };
+
+            var request = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+            };
+
+            AmazonDynamoDBClient dbClient = dynamoDBConnect();
+            var response = await dbClient.PutItemAsync(request);
+            return Ok(new { Success = true });
+            //return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
     }
+
+    
 }
