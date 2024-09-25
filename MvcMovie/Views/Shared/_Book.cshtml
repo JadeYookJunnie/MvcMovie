@@ -190,6 +190,7 @@
     }
 
     document.getElementById('currentReadsButton').addEventListener('click', function() {
+        alert('current');
         toggleButton(this, 'current reads');
     });
 
@@ -227,6 +228,8 @@
         currentRating[safeId] = input.value; // Store the rating value
     }
     function submitReview(safeId) {
+        @* safeId = ISBN *@
+            alert(safeId);
         const reviewTitle = document.querySelector(`#reviewInput-${safeId} input[aria-label="reviewTilte"]`);
         const ratingInput = document.querySelector(`#reviewInput-${safeId} input[id="ratingInput-${safeId}"]`);
         const reviewText = document.querySelector(`#reviewInput-${safeId} textarea`);
@@ -236,6 +239,26 @@
             showErrorToast();
             markFieldsAsInvalid([reviewTitle, ratingInput, reviewText]);
         } else {
+            $.ajax({
+                url: '/Home/AddReview', // URL to the HomeController's AddReview action
+                type: 'POST',
+                data: {
+                    bookID: safeID,
+                    user: 'user'
+                    rating: ratingInput,
+                    review: reviewText
+                },
+                success: function (response) {
+                    if (response.success) {
+                        alert('Review added successfully');
+                    } else {
+                        alert('Failed to add review');
+                    }
+                },
+                error: function () {
+                    alert('Error submitting review');
+                }
+            });
             showSuccessToast();
             clearFields([reviewTitle, ratingInput, reviewText]);
         }
