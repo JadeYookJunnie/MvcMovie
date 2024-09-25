@@ -14,7 +14,7 @@ namespace MvcMovie.Models
         public string Email {get; set;}
         public string Username{ get; set; }
         public List<BookModel> Favourites { get; set; } = new List<BookModel>(); 
-        public List<BookModel> Wishlist { get; set; } = new List<BookModel>(); 
+        //public List<BookModel> Wishlist { get; set; } = new List<BookModel>(); 
         public List<UserModel> Friendlist { get; set; } = new List<UserModel>(); 
 
         public List<ReviewModel> ReviewList { get; set; } = new List<ReviewModel>();
