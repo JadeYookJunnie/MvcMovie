@@ -36,61 +36,19 @@ namespace MvcMovie.Controllers
                 return View(books);
     
         }
-    public IActionResult MyUser()
+    public async Task<IActionResult> MyUser()
     {
-        var user = new MyUserModel("Thorfinn Karlsefni", "thor@thor.com", "thor", "password");
+        // need to be able to pass in the username of the logged in user
+        string username = "abbie";
 
+        // constructor of user model gets the data and populates into the fields
+        var user = new MyUserModel(username);
+        //await user.GetDataAsync(username);
+        await user.IdsToBookModel(_googleBooksService);
+        
+        // Console.WriteLine("Current reads: " + user.CurrentReads.Count);
+        // Console.WriteLine("Favourties: " + user.Favourites.Count);
 
-        var books = new List<BookModel>{
-            new BookModel("123456", "To Kill a Mockingbird", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Harper Lee", 5, new DateTime(1960, 7, 11)),
-            new BookModel("123456", "The Great Gatsby", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "F. Scott Fitzgerald", 5, new DateTime(1925, 4, 10)),
-            new BookModel("123456", "The Lion, the Witch and the Wardrobe", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "C.S. Lewis", 5, new DateTime(1950, 10, 16)),
-            new BookModel("123456", "Title", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, new DateTime(1960, 7, 11)),
-            new BookModel("123456", "To Kill a Mockingbird", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Harper Lee", 5, new DateTime(1960, 7, 11)),
-            new BookModel("123456", "The Great Gatsby", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "F. Scott Fitzgerald", 5, new DateTime(1925, 4, 10)),
-            new BookModel("123456", "The Lion, the Witch and the Wardrobe", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "C.S. Lewis", 5, new DateTime(1950, 10, 16)),
-            new BookModel("123456", "Title", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, new DateTime(1960, 7, 11)),
-            new BookModel("123456", "To Kill a Mockingbird", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Harper Lee", 5, new DateTime(1960, 7, 11)),
-            new BookModel("123456", "The Great Gatsby", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "F. Scott Fitzgerald", 5, new DateTime(1925, 4, 10)),
-            new BookModel("123456", "The Lion, the Witch and the Wardrobe", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "C.S. Lewis", 5, new DateTime(1950, 10, 16)),
-            new BookModel("123456", "Title", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, new DateTime(1960, 7, 11)),
-            new BookModel("123456", "To Kill a Mockingbird", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Harper Lee", 5, new DateTime(1960, 7, 11)),
-            new BookModel("123456", "The Great Gatsby", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "F. Scott Fitzgerald", 5, new DateTime(1925, 4, 10)),
-            new BookModel("123456", "The Lion, the Witch and the Wardrobe", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "C.S. Lewis", 5, new DateTime(1950, 10, 16)),
-            new BookModel("123456", "Title", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", "~/images/bookcover.jpg", new List<string> { "Genre1", "Genre2" }, "Author", 5, new DateTime(1960, 7, 11)),
-        };
-
-        var users = new List<UserModel>
-        {
-            new UserModel { UserId = "1", Name = "John Doe" },
-            new UserModel { UserId = "2", Name = "Jane Smith" },
-            new UserModel { UserId = "3", Name = "Alice Johnson" },
-            new UserModel { UserId = "4", Name = "Bob Brown" },
-            new UserModel { UserId = "5", Name = "Charlie Davis" }
-        };
-
-        foreach (var book in books)
-        { 
-            user.addBookToCurrentReads(book);
-            user.addBookToFavorites(book);
-
-            for (int i = 0; i < 5; i++)
-            {
-                var review = new ReviewModel(
-                    id: _reviews.Count + 1, 
-                    user: users[i % users.Count], 
-                    book: book,
-                    likeCount: i * 2, 
-                    rating: (i % 5) + 1, 
-                    review: $"Sample review for {book.Title}.", 
-                    date: DateTime.Now.AddDays(-i) 
-                );
-
-                _reviews.Add(review);
-                book.addReview(review);
-            }
-        }
-        ViewBag.CurrentUser = user;
         return View(user);
     }
         
