@@ -42,7 +42,6 @@ namespace MvcMovie.Controllers
         }
     public async Task<IActionResult> MyUser()
     {
-
         // need to be able to pass in the username of the logged in user
         string username = "abbie";
         UserName = username;

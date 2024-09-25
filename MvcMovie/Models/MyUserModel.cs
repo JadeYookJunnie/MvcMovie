@@ -19,7 +19,6 @@ namespace MvcMovie.Models
 
         public List<ReviewModel> ReviewList { get; set; } = new List<ReviewModel>();
 
-
         // have made these string lists for now so that the data from db can be stored easily
         public static List<string> StrFriends;
         public static List<string> StrFavourites;
@@ -29,13 +28,15 @@ namespace MvcMovie.Models
 
         public MyUserModel(string name)
         {
-            Name = name;
-
             dbClient = dynamoDBConnect();
 
             // populates the local lists with data from db
             //GetData(name);
-
+            
+            Name = name;
+            Password = password; 
+            Email = email;
+            Username= username;
 
             CurrentReads = new List<BookModel>(); 
             Favourites = new List<BookModel>();   
