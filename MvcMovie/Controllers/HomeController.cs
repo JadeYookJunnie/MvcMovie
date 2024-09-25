@@ -42,7 +42,7 @@ namespace MvcMovie.Controllers
 
         // constructor of user model gets the data and populates into the fields
         var user = new MyUserModel(username);
-        await user.GetDataAsync(username);
+        //await user.GetDataAsync(username);
         await user.IdsToBookModel(_googleBooksService);
         
         // Console.WriteLine("Current reads: " + user.CurrentReads.Count);
