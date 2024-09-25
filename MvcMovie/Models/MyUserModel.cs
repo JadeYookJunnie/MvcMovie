@@ -11,6 +11,8 @@ namespace MvcMovie.Models
 
         public string Name {get; set;}
         public string Password { get; set; }
+        public string Email {get; set;}
+        public string Username{ get; set; }
         public List<BookModel> Favourites { get; set; } = new List<BookModel>(); 
         public List<BookModel> Wishlist { get; set; } = new List<BookModel>(); 
         public List<UserModel> Friendlist { get; set; } = new List<UserModel>(); 
@@ -26,12 +28,15 @@ namespace MvcMovie.Models
 
         public MyUserModel(string name)
         {
-            Name = name;
-
             dbClient = dynamoDBConnect();
 
             // populates the local lists with data from db
             //GetData(name);
+            
+            Name = name;
+            Password = password; 
+            Email = email;
+            Username= username;
 
             CurrentReads = new List<BookModel>(); 
             Favourites = new List<BookModel>();   
