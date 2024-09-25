@@ -9,67 +9,67 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MvcMovie
 build_property.RootNamespace = MvcMovie
-build_property.ProjectDir = C:\Users\jadel\source\repos\MvcMovieReload\MvcMovie\
+build_property.ProjectDir = C:\Users\jadel\Source\Repos\MvcMovie\MvcMovieFinal\MvcMovie\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\jadel\source\repos\MvcMovieReload\MvcMovie
+build_property.MSBuildProjectDirectory = C:\Users\jadel\Source\Repos\MvcMovie\MvcMovieFinal\MvcMovie
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Home/BrowseArea.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Home/BrowseArea.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCcm93c2VBcmVhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Home/Index.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Home/Login.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Home/MyUser.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Home/MyUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNeVVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Home/Privacy.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Shared/Error.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Shared/Review.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Shared/Review.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJldmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Shared/_Book.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Shared/_Book.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Cb29rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Shared/_BookList.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Shared/_BookList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Cb29rTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Shared/_Review.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Shared/_Review.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZXZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/_ViewImports.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/_ViewStart.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jadel/source/repos/MvcMovieReload/MvcMovie/Views/Shared/_Layout.cshtml]
+[C:/Users/jadel/Source/Repos/MvcMovie/MvcMovieFinal/MvcMovie/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-0uvum7rpp4

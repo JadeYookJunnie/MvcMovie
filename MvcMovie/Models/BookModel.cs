@@ -1,29 +1,24 @@
 ﻿using Amazon.DynamoDBv2;
-<<<<<<< HEAD
+
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.DynamoDBv2.Model;
 using System.Net;
 using System.Text.Json;
-=======
+
 using Amazon.DynamoDBv2.Model;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon;
 using Microsoft.VisualBasic;
 using System.Globalization;
->>>>>>> origin/db
+
 
 namespace MvcMovie.Models
 {
     public class BookModel
-<<<<<<< HEAD
-    {
-=======
     {   
         public static AmazonDynamoDBClient dbClient;
-
->>>>>>> origin/db
         public string ISBN { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -35,14 +30,13 @@ namespace MvcMovie.Models
         public int ReviewCount { get; set; }
         public List<ReviewModel> BookReviews { get; set; }
 
-<<<<<<< HEAD
-=======
+
         public BookModel(string id, string ISBN, string Title, string Description, string Picture, List<string> Genre, string Author, int Rating)
         {   
             dbClient = dynamoDBConnect();
             GetReviews("AWMxzoncFBgC");
 
-            this.id = id;
+            //this.id = id;
             this.ISBN = ISBN;
             this.Title = Title;
             this.Description = Description;
@@ -53,7 +47,7 @@ namespace MvcMovie.Models
             this.ReviewCount = 0;
             this.BookReviews = new List<ReviewModel>();
         }
->>>>>>> origin/db
+
 
 
         private readonly IDynamoDBContext _context;
@@ -176,10 +170,8 @@ namespace MvcMovie.Models
                 BookReviews.Remove(review);
             }
 
-        }
-<<<<<<< HEAD
-    
-=======
+        
+
 
         public AmazonDynamoDBClient dynamoDBConnect(){
             string accessKey = Environment.GetEnvironmentVariable("DB_ACCESS_KEY");
@@ -360,5 +352,5 @@ namespace MvcMovie.Models
         }
 
     }
->>>>>>> origin/db
 }
+

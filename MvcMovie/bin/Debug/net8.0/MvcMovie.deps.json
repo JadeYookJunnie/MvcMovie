@@ -8,12 +8,11 @@
     ".NETCoreApp,Version=v8.0": {
       "MvcMovie/1.0.0": {
         "dependencies": {
-          "AWSSDK.DynamoDBv2": "3.7.400.13",
+          "AWSSDK.DynamoDBv2": "3.7.400.16",
           "Blazorise": "1.6.0",
           "Blazorise.AntDesign": "1.6.0",
           "Blazorise.Icons.FontAwesome": "1.6.0",
           "DotNetEnv": "3.1.0",
-          "Microsoft.Extensions.Logging": "8.0.0",
           "System.Net.Http.Json": "8.0.0",
           "bootstrap": "5.3.3"
         },
@@ -21,22 +20,22 @@
           "MvcMovie.dll": {}
         }
       },
-      "AWSSDK.Core/3.7.400.13": {
+      "AWSSDK.Core/3.7.400.16": {
         "runtime": {
           "lib/net8.0/AWSSDK.Core.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.7.400.13"
+            "fileVersion": "3.7.400.16"
           }
         }
       },
-      "AWSSDK.DynamoDBv2/3.7.400.13": {
+      "AWSSDK.DynamoDBv2/3.7.400.16": {
         "dependencies": {
-          "AWSSDK.Core": "3.7.400.13"
+          "AWSSDK.Core": "3.7.400.16"
         },
         "runtime": {
           "lib/net8.0/AWSSDK.DynamoDBv2.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.7.400.13"
+            "fileVersion": "3.7.400.16"
           }
         }
       },
@@ -191,13 +190,6 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.324.11423"
           }
-        }
-      },
-      "Microsoft.Extensions.Logging/8.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection": "8.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.1",
-          "Microsoft.Extensions.Options": "8.0.2"
         }
       },
       "Microsoft.Extensions.Logging.Abstractions/8.0.1": {
@@ -939,19 +931,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AWSSDK.Core/3.7.400.13": {
+    "AWSSDK.Core/3.7.400.16": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hEW5F8dMLyVRJ+LrTJVwpaOSVIsfG0Yvo2IMTDB9gxbDRzHv/iu/fzUhwNLlLuV+vel6Z3yq3AGaTFbA0Khj5w==",
-      "path": "awssdk.core/3.7.400.13",
-      "hashPath": "awssdk.core.3.7.400.13.nupkg.sha512"
+      "sha512": "sha512-vz+dqunrmVN4xDBI2aeSIDap8cKZcer/rRph4ODn8uzcdA2t1QAzjqnR/VuetcuHtVCb+LN8L94m3BGLFq0GQQ==",
+      "path": "awssdk.core/3.7.400.16",
+      "hashPath": "awssdk.core.3.7.400.16.nupkg.sha512"
     },
-    "AWSSDK.DynamoDBv2/3.7.400.13": {
+    "AWSSDK.DynamoDBv2/3.7.400.16": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qMRyswFNMCSLgc/ytjolXjjvhPgFj/WeG0gFhAInB4/bSi0EEefV6I3Df7R0QcNgEGsFOYLejh5nDHBJIfxDSA==",
-      "path": "awssdk.dynamodbv2/3.7.400.13",
-      "hashPath": "awssdk.dynamodbv2.3.7.400.13.nupkg.sha512"
+      "sha512": "sha512-kM//3EswkG0uk9qC615eW3RMmu2obrr+Uy+vqoUwK0y09dD32X5XfMEKr9+A7X+dDgZ/RLP+mYZKbX77T4W+Rg==",
+      "path": "awssdk.dynamodbv2/3.7.400.16",
+      "hashPath": "awssdk.dynamodbv2.3.7.400.16.nupkg.sha512"
     },
     "Blazorise/1.6.0": {
       "type": "package",
@@ -1064,13 +1056,6 @@
       "sha512": "sha512-fGLiCRLMYd00JYpClraLjJTNKLmMJPnqxMaiRzEBIIvevlzxz33mXy39Lkd48hu1G+N21S7QpaO5ZzKsI6FRuA==",
       "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.1",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Logging/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-tvRkov9tAJ3xP51LCv3FJ2zINmv1P8Hi8lhhtcKGqM+ImiTCC84uOPEI4z8Cdq2C3o9e+Aa0Gw0rmrsJD77W+w==",
-      "path": "microsoft.extensions.logging/8.0.0",
-      "hashPath": "microsoft.extensions.logging.8.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging.Abstractions/8.0.1": {
       "type": "package",
